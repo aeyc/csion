@@ -2,7 +2,7 @@
 ### Group Members
 - Ayça Begüm Taşçıoğlu
 - Nursena Kurubaş
-- Yavuz Taşçı
+- İsmail Yavuzselim Taşçı
 - Mehmet Sanisoğlu
 - Selim Özcan
 
