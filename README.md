@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## CSION by NYMSA
 
 You can use the [editor on GitHub](https://github.com/aeyc/csion/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
