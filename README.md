@@ -1,4 +1,14 @@
 # CSION by NYMSA
+### Group Members
+Ayça Begüm Taşçıoğlu
+Nursena Kurubaş
+Yavuz Taşçı
+Mehmet Sanisoğlu
+Selim Özcan
+
+### Reports
+- Project Specifications Report [Project Specifications Report](https://github.com/aeyc/csion/tree/master/Reports/Project%20Specifications)
+
 
 You can use the [editor on GitHub](https://github.com/aeyc/csion/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
