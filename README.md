@@ -7,5 +7,5 @@
 - Selim Özcan
 
 ### Reports
-- Project Specifications Report [Project Specifications Report](https://github.com/aeyc/csion/tree/master/Reports/Project%20Specifications)
+- [Project Specifications Report](https://github.com/aeyc/csion/tree/master/Reports/Project%20Specifications)
 
