@@ -1,6 +1,6 @@
-# [Start Bootstrap - Landing Page](https://startbootstrap.com/template-overviews/landing-page/)
+# [Csion](https://startbootstrap.com/template-overviews/landing-page/)
 
-[Landing Page](http://startbootstrap.com/template-overviews/landing-page/) is a multipurpose landing page template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+[Landing Page](http://startbootstrap.com/template-overviews/landing-page/) is a multipurpose landing page template for [Csion](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
 ## Preview
 
