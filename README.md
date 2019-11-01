@@ -1,4 +1,4 @@
-![Image](https://d2slcw3kip6qmk.cloudfront.net/marketing/blog/2019Q2/decision-making/decision-making-techniques-header@2x.png)
+![Image](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/man-nueral-network-red-.jpg)
 # CSION by NYMSA
 ### Group Members
 - Ayça Begüm Taşçıoğlu
