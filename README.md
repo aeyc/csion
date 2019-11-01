@@ -1,3 +1,4 @@
+![https://d2slcw3kip6qmk.cloudfront.net/marketing/blog/2019Q2/decision-making/decision-making-techniques-header@2x.png]
 # CSION by NYMSA
 ### Group Members
 - Ayça Begüm Taşçıoğlu
