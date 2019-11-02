@@ -10,8 +10,8 @@
 ### Advisor
 Uğur Güdükbay
 ### Jury Members
--Özgür Ulusoy
--İbrahim Körpeoğlu
+- Özgür Ulusoy
+- İbrahim Körpeoğlu
 ### Innovation Expert
 Ahmet Eren Başak
 
