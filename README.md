@@ -1,5 +1,6 @@
 
 # CSION by NYMSA
+![Image](https://i.pinimg.com/564x/80/bb/c0/80bbc0098241a384d740efc0b511da65.jpg)
 ### Group Members
 - Ayça Begüm Taşçıoğlu
 - Nursena Kurubaş
