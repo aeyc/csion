@@ -8,12 +8,12 @@
 - Mehmet Sanisoğlu
 - Selim Özcan
 ### Advisor
-Uğur Güdükbay
+- Uğur Güdükbay
 ### Jury Members
 - Özgür Ulusoy
 - İbrahim Körpeoğlu
 ### Innovation Expert
-Ahmet Eren Başak
+- Ahmet Eren Başak
 
 ### About
 Csion aims to optimize people’s decisions about any subject based on 
