@@ -1,68 +1,23 @@
-# [Csion](https://startbootstrap.com/template-overviews/landing-page/)
 
-[Landing Page](http://startbootstrap.com/template-overviews/landing-page/) is a multipurpose landing page template for [Csion](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+# CSION by NYMSA
+![Image](https://i.pinimg.com/564x/80/bb/c0/80bbc0098241a384d740efc0b511da65.jpg)
+### Group Members
+- Ayça Begüm Taşçıoğlu
+- Nursena Kurubaş
+- İsmail Yavuzselim Taşçı
+- Mehmet Sanisoğlu
+- Selim Özcan
+### Advisor
+Uğur Güdükbay
+### Jury Members
+-Özgür Ulusoy
+-İbrahim Körpeoğlu
+### Innovation Expert
+Ahmet Eren Başak
 
-## Preview
-
-[![Landing Page Preview](https://startbootstrap.com/assets/img/screenshots/themes/landing-page.png)](https://blackrockdigital.github.io/startbootstrap-landing-page/)
-
-**[View Live Preview](https://blackrockdigital.github.io/startbootstrap-landing-page/)**
-
-## Status
-
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-landing-page/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-landing-page.svg)](https://www.npmjs.com/package/startbootstrap-landing-page)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-landing-page.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-landing-page)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-landing-page/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-landing-page)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-landing-page/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-landing-page?type=dev)
-
-## Download and Installation
-
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](https://startbootstrap.com/template-overviews/landing-page/)
-* Install via npm: `npm i startbootstrap-landing-page`
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-landing-page.git`
-* [Fork, Clone, or Download on GitHub](https://github.com/BlackrockDigital/startbootstrap-landing-page)
-
-## Usage
-
-### Basic Usage
-
-After downloading, simply edit the HTML and CSS files included with the template in your favorite text editor to make changes. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
-
-### Advanced Usage
-
-After installation, run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `gulpfile.js` to see which tasks are included with the dev environment.
-
-#### Gulp Tasks
-
-- `gulp` the default task that builds everything
-- `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-- `gulp css` compiles SCSS files into CSS and minifies the compiled CSS
-- `gulp js` minifies the themes JS file
-- `gulp vendor` copies dependencies from node_modules to the vendor directory
-
-You must have npm installed globally in order to use this build environment.
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-landing-page/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/landing-page/).
-
-## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2019 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/gh-pages/LICENSE) license.
+### About
+Csion aims to optimize people’s decisions about any subject based on 
+their characteristic behaviours within a short amount of time.
+We are using Myers-Briggs Personality types to have an initial categorization of the users' characters. This test is highly standardized and is esteemed in the field of psychology. There are 16 unique personalities and each person can find their personality type by solving simple and quick test question. These types have certain borderline character traits that generally conform to the way people behave. Although it is a deciding factor, personality alone is not the only variable when a person makes a decision. The other circumstantial factors such as users' preferences and current mood will also be constantly updated via random questions throughout the day, to be able to give a more personalized result. We will try to identify the problem at hand by asking several questions to the user. According to the given choices, the app will ask the users to indicate the pros and cons of that problem and give a rating for each pro/con where users will also indicate their current mood. Each answer will be labelled as a variable and the result of the pros and cons section will be analysed. After collecting every necessary input, the algorithm will compare the labelled variables with personality variables and it will create an output. The output will be a detailed analysis of the decision at hand, with sections such as emotional and rational aspects of the problem and coherence between the user’s personality traits and the problem itself. The output will show the percentages of people who have the same type of personality who inquired a similar problem as well as whether or not they were happy with the outcome of the decision. This information will be gathered from users by collecting feedback after a certain amount of time has passed since their decision. Finally, the output will indicate a reasonable decision for users.
+### Reports
+- Project Specifications Report [Project Specifications Report](https://github.com/aeyc/csion/tree/master/Reports/Project%20Specifications)
