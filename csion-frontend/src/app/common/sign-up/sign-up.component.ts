@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-sign-up',
