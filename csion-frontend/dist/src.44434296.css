@@ -1,12 +1,20 @@
-
-img {
+#logo {
     width: 12%;
     height: auto;
     margin-top: 10%;
+    margin-bottom : 10%
 }
 
 body {
     background-color: #539093;
+}
+
+hr {
+    margin-top: 27%; 
+    background-color: #70ACAF; 
+    border: none; 
+    height: 1px;
+    width: 90%;
 }
 
 button {
@@ -14,74 +22,53 @@ button {
 	border-radius:35px;
     border: none;
     color:#539093;
-    padding: 12px 100px;
+    padding: 14px 85px;
     display: inline-block;
     margin-bottom: 25px;
-    font-size: 15px;
+    font-size: 20px;
     outline: none;
+    font-family: 'Montserrat';
 }
 
-#login:hover {
-    background-color:#64adb1;
-    color: #ffffff;
+p {
+    font-family: 'Montserrat';
+    color: #9ACBCD;
+    font-size: 10px;
 }
 
 #signup {
 	background-color:#64adb1 !important;
     color:#ffffff !important;
-    padding: 12px 95.5px !important;
+    padding: 14px 80px !important;
 }
-#signup:hover {
-    background-color:#ffffff  !important;
-    color: #539093 !important;
-}
-button:active {
+button:active{
 	position:relative;
 	top:1px;
 }
-.cloud {
-    position: relative;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
 
-    margin-top: 0px;
-}
-.c1 {
-    animation-name: cloud1;
-}
-@keyframes cloud1 {
-    0%   { left:0px; top:0px;}
-    100% { left:40%; top:0px;}
+body {
+    padding: 20px;
 }
 
-.c2 {
-    animation-name: cloud2;
+.circle {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 105px;
+    left: 105px;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+    background-color: white;
+    border-radius: 100%;
+    overflow: hidden;
 }
-@keyframes cloud2 {
-    0%   { left:0px; top:0px;}
-    100% { left:20%; top:0px;}
-}
-.c3 {
-    animation-name: cloud3;
-}
-@keyframes cloud3 {
-    0%   { left:0px; top:0px;}
-    100% { left:5%; top:0px;}
-}
-.c4 {
-    
-    animation-name: cloud4;
-}
-@keyframes cloud4 {
-    0%   { left:0px; top:20%;}
-    100% { left:40%; top:20%}
-}
-.c1 {
-    animation-name: cloud1;
-}
-@keyframes cloud1 {
-    0%   { left:0px; top:0px;}
-    100% { left:40%; top:0px;}
+
+.open {
+    top: 0px;
+    left: 0px;
+    width: 210px;
+    height: 210px;
 }
 
 /*# sourceMappingURL=/src.44434296.css.map */

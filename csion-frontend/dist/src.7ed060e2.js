@@ -118,13 +118,92 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"../src/index.js":[function(require,module,exports) {
-$("button").click(function () {
-  $.get("http://localhost:3000/", function (data) {
-    console.log(data);
-    $("button").html(data);
+var delay = function delay(ms) {
+  return new Promise(function (res) {
+    return setTimeout(res, ms);
   });
+};
+
+$("#login").click(function () {
+  $("button").hide();
+  $("hr").hide();
+  $("p").hide();
+
+  if (window.innerWidth < window.innerHeight) {
+    $("#logo").css("margin-bottom", "30%");
+  }
+
+  $(".circle").css("visibility", "visible");
+  var k = 1;
+
+  for (var i = 1; i < 7; i++) {
+    var element = "";
+    sleep(200 * i).then(function () {
+      element = "#circle" + k.toString();
+      $(element).addClass('open');
+      k++;
+    });
+  }
 });
-},{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+if (window.innerWidth < window.innerHeight) {
+  //mobile
+  $("#logo").css({
+    "width": "50%",
+    "margin-bottom": "45%",
+    "margin-top": "30%"
+  });
+  $("button:hover, button:active").css({
+    "position": "relative",
+    "top": "1px"
+  });
+  $("#circle1").css({
+    "margin-left": "20%",
+    "margin-top": "80%"
+  });
+  $("#circle2").css({
+    "margin-left": "-10%",
+    "margin-top": "83%"
+  });
+  $("#circle3").css({
+    "margin-left": "60%",
+    "margin-top": "84%"
+  });
+  $("#circle4").css({
+    "margin-left": "25%",
+    "margin-top": "125%"
+  });
+  $("#circle5").css({
+    "margin-left": "-10%",
+    "margin-top": "125%"
+  });
+  $("#circle6").css({
+    "margin-left": "55%",
+    "margin-top": "125%"
+  });
+} else {
+  //desktop
+  $("button:active").css({
+    "position": "relative",
+    "top": "1px"
+  });
+  $("#signup:hover").css({
+    "background-color": "#ffffff  !important",
+    "color": "#539093 !important"
+  });
+  $("#login:hover").css({
+    "background-color": "#64adb1 ",
+    "color": "#ffffff"
+  });
+  $("hr").css("margin-top", "10%");
+}
+
+var sleep = function sleep(milliseconds) {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, milliseconds);
+  });
+};
+},{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -152,7 +231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53139" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51684" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -328,5 +407,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","../src/index.js"], null)
+},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/index.js"], null)
 //# sourceMappingURL=/src.7ed060e2.js.map
