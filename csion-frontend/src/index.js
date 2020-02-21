@@ -7,7 +7,9 @@ $(".openLogin").click(() => {
 
     if ((window.innerWidth < window.innerHeight )){
         $("#logo").css("margin-bottom", "30%");
-    } 
+    } else {
+        $("#logo").css("margin-top", "5% ");
+    }
     var k = 1;
     for(let i = 1; i<7; i++){
         var element = "";
@@ -27,7 +29,9 @@ $(".openSignUp").click(() => {
     $(".circle").removeClass('open');
     if ((window.innerWidth < window.innerHeight )){
         $("#logo").css("margin-bottom", "30%");
-    } 
+    } else {
+        $("#logo").css("margin-top", "5% ");
+    }
 
     var k = 1;
     for(let i = 1; i<7; i++){
@@ -61,10 +65,20 @@ if ((window.innerWidth < window.innerHeight )) {
     
 } else {
     //desktop
+
     $("button:active").css({ "position": "relative", "top": "1px" });
     $("#signup:hover").css({ "background-color": "#ffffff  !important", "color": "#539093 !important" });
     $("#login:hover").css({ "background-color": "#64adb1 ", "color": "#ffffff" });
     $("hr").css("margin-top", "10%" );
+    $("#circle1").css({"margin-left":"52%", "margin-top": "17%"});
+    $("#circle2").css({"margin-left":"32%", "margin-top": "18%"});
+    $("#circle3").css({"margin-left":"42%", "margin-top": "16%"});
+    $("#circle4").css({"margin-left":"52%", "margin-top": "30%"});
+    $("#circle5").css({"margin-left":"32%", "margin-top": "30%"});
+    $("#circle6").css({"margin-left":"42%", "margin-top": "30%"});
+    $("#loginForm").css({"margin-left":"40%", "margin-top": "25%"});
+    $("#signUpForm").css({"margin-left":"40%", "margin-top": "23%"});
+   
 }
 const sleep = milliseconds => { 
     return new Promise(resolve => setTimeout(resolve, milliseconds)); 

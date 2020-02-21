@@ -132,6 +132,8 @@ $(".openLogin").click(function () {
 
   if (window.innerWidth < window.innerHeight) {
     $("#logo").css("margin-bottom", "30%");
+  } else {
+    $("#logo").css("margin-top", "5% ");
   }
 
   var k = 1;
@@ -156,6 +158,8 @@ $(".openSignUp").click(function () {
 
   if (window.innerWidth < window.innerHeight) {
     $("#logo").css("margin-bottom", "30%");
+  } else {
+    $("#logo").css("margin-top", "5% ");
   }
 
   var k = 1;
@@ -232,6 +236,38 @@ if (window.innerWidth < window.innerHeight) {
     "color": "#ffffff"
   });
   $("hr").css("margin-top", "10%");
+  $("#circle1").css({
+    "margin-left": "52%",
+    "margin-top": "17%"
+  });
+  $("#circle2").css({
+    "margin-left": "32%",
+    "margin-top": "18%"
+  });
+  $("#circle3").css({
+    "margin-left": "42%",
+    "margin-top": "16%"
+  });
+  $("#circle4").css({
+    "margin-left": "52%",
+    "margin-top": "30%"
+  });
+  $("#circle5").css({
+    "margin-left": "32%",
+    "margin-top": "30%"
+  });
+  $("#circle6").css({
+    "margin-left": "42%",
+    "margin-top": "30%"
+  });
+  $("#loginForm").css({
+    "margin-left": "40%",
+    "margin-top": "25%"
+  });
+  $("#signUpForm").css({
+    "margin-left": "40%",
+    "margin-top": "23%"
+  });
 }
 
 var sleep = function sleep(milliseconds) {
