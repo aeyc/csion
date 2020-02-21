@@ -133,7 +133,6 @@ $("#login").click(function () {
     $("#logo").css("margin-bottom", "30%");
   }
 
-  $(".circle").css("visibility", "visible");
   var k = 1;
 
   for (var i = 1; i < 7; i++) {
@@ -144,6 +143,10 @@ $("#login").click(function () {
       k++;
     });
   }
+
+  sleep(1800).then(function () {
+    $("#loginForm").show();
+  });
 });
 
 if (window.innerWidth < window.innerHeight) {
@@ -158,7 +161,7 @@ if (window.innerWidth < window.innerHeight) {
     "top": "1px"
   });
   $("#circle1").css({
-    "margin-left": "20%",
+    "margin-left": "25%",
     "margin-top": "80%"
   });
   $("#circle2").css({
@@ -166,11 +169,11 @@ if (window.innerWidth < window.innerHeight) {
     "margin-top": "83%"
   });
   $("#circle3").css({
-    "margin-left": "60%",
+    "margin-left": "70%",
     "margin-top": "84%"
   });
   $("#circle4").css({
-    "margin-left": "25%",
+    "margin-left": "30%",
     "margin-top": "125%"
   });
   $("#circle5").css({
@@ -178,8 +181,12 @@ if (window.innerWidth < window.innerHeight) {
     "margin-top": "125%"
   });
   $("#circle6").css({
-    "margin-left": "55%",
+    "margin-left": "70%",
     "margin-top": "125%"
+  });
+  $("#loginForm").css({
+    "margin-left": "12%",
+    "margin-top": "100%"
   });
 } else {
   //desktop
@@ -231,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51684" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64665" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
