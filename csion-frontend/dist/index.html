@@ -19,30 +19,39 @@
 <script src="/src.44434296.js"></script></head>
 
 <body id="body">
-    <div style="text-align: center !important; ">
+    
         <img src="/logo.c8003ea4.PNG" id="logo">
         <br>
-        <button ontouchstart="" id="login">Log In</button>
+        <div class="entrance">
+        <button ontouchstart="" id="login" class="openLogin">Log In</button>
         <br>
-        <button ontouchstart="" id="signup">Sign Up</button>
-            <hr>
-            <p>All rights reserved. © </p>
+        <button ontouchstart="" id="signup" class="openSignUp">Sign Up</button>
+            <hr id="entranceLine">
+            <p id="rights">All rights reserved. © </p>
+        </div>
             <div class="circle" id="circle1" style="margin-left:40%;"></div>
             <div class="circle" id="circle2" style="margin-left:35%;"></div>
             <div class="circle" id="circle3" style="margin-left:45%;"></div>
             <div class="circle" id="circle4" style="margin-left:40%;"></div>
             <div class="circle" id="circle5" style="margin-left:35%;"></div>
             <div class="circle" id="circle6" style="margin-left:45%;"></div>
-            
+           
                 <form id="loginForm">
-                    <input type="text" id="uname" placeholder="Username"><br><br>
-                    <input type="text" id="password" placeholder="Password"><br><br>
-
+                    <input ontouchstart="" type="text" id="uname" placeholder="Username"><br><br>
+                    <input ontouchstart="" type="text" id="password" placeholder="Password"><br><br>
+                    <button ontouchstart="" id="formButton">Log In</button><br>
+                    <hr>
+                    <p id="text">Don't have an account yet?<a id="signUpLink" class="openSignUp" href="#"> Sign up from here!</a></p>
                 </form>
-                <form id="signupForm">form
+                <form id="signUpForm">
+                    <input ontouchstart="" type="text" id="uname" placeholder="Username"><br><br>
+                    <input ontouchstart="" type="text" id="email" placeholder="Email"><br><br>
+                    <input ontouchstart="" type="text" id="password" placeholder="Password"><br><br>
+                    <button ontouchstart="" id="formButton">Sign Up</button>
+                    <hr>
+                    <p id="text">Already have an account?<a id="loginLink" class="openLogin" href="#"> Login from here!</a></p>
+                
                 </form>
-
-    </div>
     <script src="/src.7ed060e2.js"></script>
 </body>
 

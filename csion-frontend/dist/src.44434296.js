@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\public\\assets\\user.png":[["user.53a65b63.png","assets/user.png"],"assets/user.png"],"./..\\public\\assets\\lock.png":[["lock.d353c74b.png","assets/lock.png"],"assets/lock.png"],"_css_loader":"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\public\\assets\\user.png":[["user.53a65b63.png","assets/user.png"],"assets/user.png"],"./..\\public\\assets\\lock.png":[["lock.d353c74b.png","assets/lock.png"],"assets/lock.png"],"./..\\public\\assets\\mail.png":[["mail.71e7cf78.png","assets/mail.png"],"assets/mail.png"],"_css_loader":"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

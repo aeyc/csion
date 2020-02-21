@@ -1,9 +1,30 @@
 const delay = ms => new Promise(res => setTimeout(res, ms));
+let signUpClicked=false;
+$(".openLogin").click(() => {
+    $(".entrance").hide();
+        $("#signUpForm").hide();
+        $(".circle").removeClass('open');
 
-$("#login").click(() => {
-    $("button").hide();
-    $("hr").hide();
-    $("p").hide();
+    if ((window.innerWidth < window.innerHeight )){
+        $("#logo").css("margin-bottom", "30%");
+    } 
+    var k = 1;
+    for(let i = 1; i<7; i++){
+        var element = "";
+        sleep(200*i).then(() => { 
+            element= "#circle"+k.toString();
+            $(element).addClass('open');
+            k++;
+        });     
+    }
+    sleep(1800).then(() => { 
+        $("#loginForm").show();
+    });
+});
+$(".openSignUp").click(() => {
+    $(".entrance").hide();
+    $("#loginForm").hide();
+    $(".circle").removeClass('open');
     if ((window.innerWidth < window.innerHeight )){
         $("#logo").css("margin-bottom", "30%");
     } 
@@ -18,23 +39,24 @@ $("#login").click(() => {
         });     
     }
     sleep(1800).then(() => { 
-        $("#loginForm").show();
+        $("#signUpForm").show();
     });
     
-
 });
-
 if ((window.innerWidth < window.innerHeight )) { 
     //mobile
     $("#logo").css({ "width": "50%", "margin-bottom": "45%", "margin-top": "30%" });
     $("button:hover, button:active").css({ "position": "relative", "top": "1px" });
-    $("#circle1").css({"margin-left":"25%", "margin-top": "80%"});
-    $("#circle2").css({"margin-left":"-10%", "margin-top": "83%"});
-    $("#circle3").css({"margin-left":"70%", "margin-top": "84%"});
-    $("#circle4").css({"margin-left":"30%", "margin-top": "125%"});
-    $("#circle5").css({"margin-left":"-10%", "margin-top": "125%"});
-    $("#circle6").css({"margin-left":"70%", "margin-top": "125%"});
+    $("#circle1").css({"margin-left":"20%", "margin-top": "70%"});
+    $("#circle2").css({"margin-left":"-15%", "margin-top": "73%"});
+    $("#circle3").css({"margin-left":"65%", "margin-top": "74%"});
+    $("#circle4").css({"margin-left":"25%", "margin-top": "115%"});
+    $("#circle5").css({"margin-left":"-15%", "margin-top": "115%"});
+    $("#circle6").css({"margin-left":"65%", "margin-top": "115%"});
+   
+
     $("#loginForm").css({"margin-left":"12%", "margin-top": "100%"});
+    $("#signUpForm").css({"margin-left":"12%", "margin-top": "82%"});
 
     
 } else {

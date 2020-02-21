@@ -124,10 +124,11 @@ var delay = function delay(ms) {
   });
 };
 
-$("#login").click(function () {
-  $("button").hide();
-  $("hr").hide();
-  $("p").hide();
+var signUpClicked = false;
+$(".openLogin").click(function () {
+  $(".entrance").hide();
+  $("#signUpForm").hide();
+  $(".circle").removeClass('open');
 
   if (window.innerWidth < window.innerHeight) {
     $("#logo").css("margin-bottom", "30%");
@@ -148,6 +149,30 @@ $("#login").click(function () {
     $("#loginForm").show();
   });
 });
+$(".openSignUp").click(function () {
+  $(".entrance").hide();
+  $("#loginForm").hide();
+  $(".circle").removeClass('open');
+
+  if (window.innerWidth < window.innerHeight) {
+    $("#logo").css("margin-bottom", "30%");
+  }
+
+  var k = 1;
+
+  for (var i = 1; i < 7; i++) {
+    var element = "";
+    sleep(200 * i).then(function () {
+      element = "#circle" + k.toString();
+      $(element).addClass('open');
+      k++;
+    });
+  }
+
+  sleep(1800).then(function () {
+    $("#signUpForm").show();
+  });
+});
 
 if (window.innerWidth < window.innerHeight) {
   //mobile
@@ -161,32 +186,36 @@ if (window.innerWidth < window.innerHeight) {
     "top": "1px"
   });
   $("#circle1").css({
-    "margin-left": "25%",
-    "margin-top": "80%"
+    "margin-left": "20%",
+    "margin-top": "70%"
   });
   $("#circle2").css({
-    "margin-left": "-10%",
-    "margin-top": "83%"
+    "margin-left": "-15%",
+    "margin-top": "73%"
   });
   $("#circle3").css({
-    "margin-left": "70%",
-    "margin-top": "84%"
+    "margin-left": "65%",
+    "margin-top": "74%"
   });
   $("#circle4").css({
-    "margin-left": "30%",
-    "margin-top": "125%"
+    "margin-left": "25%",
+    "margin-top": "115%"
   });
   $("#circle5").css({
-    "margin-left": "-10%",
-    "margin-top": "125%"
+    "margin-left": "-15%",
+    "margin-top": "115%"
   });
   $("#circle6").css({
-    "margin-left": "70%",
-    "margin-top": "125%"
+    "margin-left": "65%",
+    "margin-top": "115%"
   });
   $("#loginForm").css({
     "margin-left": "12%",
     "margin-top": "100%"
+  });
+  $("#signUpForm").css({
+    "margin-left": "12%",
+    "margin-top": "82%"
   });
 } else {
   //desktop

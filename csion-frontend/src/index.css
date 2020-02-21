@@ -7,9 +7,10 @@
 
 body {
     background-color: #539093;
+    text-align: center !important;
 }
 
-hr {
+#entranceLine {
     margin-top: 27%; 
     background-color: #70ACAF; 
     border: none; 
@@ -30,7 +31,7 @@ button {
     font-family: 'Montserrat';
 }
 
-p {
+#rights {
     font-family: 'Montserrat';
     color: #9ACBCD;
     font-size: 10px;
@@ -54,8 +55,8 @@ body {
     position: absolute;
     width: 0px;
     height: 0px;
-    top: 110px;
-    left: 110px;
+    top: 125px;
+    left: 125px;
     -webkit-transition-duration: 1s;
     -webkit-transition-property: all;
     -webkit-transition-timing-function: ease-in-out;
@@ -68,22 +69,13 @@ body {
 .open {
     top: 0px;
     left: 0px;
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 255px;
 }
 
-#loginForm {
+form {
     position: absolute;
     display:none;
-
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-}
-#signupForm {
-    position: absolute;
-    display:none;
-
     top: 0px;
     left: 0px;
     z-index: 1;
@@ -94,14 +86,38 @@ input {
     font-size: 16px;
     color: grey;
     background-color: rgb(245, 243, 243);
-    padding: 12px 40px 12px ;
+    padding: 12px 50px 12px ;
     background-position: 10px;
     background-repeat: no-repeat;
     width: 200px;
+}
+input:focus {
+    outline:none;
 }
 #uname {
     background-image: url("../public/assets/user.png");
 }
 #password {
     background-image: url("../public/assets/lock.png");
+}
+#email {
+    background-image: url("../public/assets/mail.png");
+}
+#formButton {
+    background-color:#64adb1 !important;
+    color:#ffffff !important;
+    padding: 14px 45px !important;
+}
+
+#text {
+    font-family: 'Montserrat';
+    font-size: 10px;
+    color: #969696;
+}
+
+a {
+    font-family: 'Montserrat';
+    text-decoration: none;
+    color: #7D9BE8;
+    font-size: 10px;
 }
