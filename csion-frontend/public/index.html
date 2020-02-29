@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Csion</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/87e5d6a379.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../src/index.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="icon" href="https://i.hizliresim.com/JWd7kY.png">
+    <link rel="apple-touch-icon" href="https://i.hizliresim.com/7Q2VvY.jpg">
+
+</head>
+
+<body>
+    
+        <img src="../../csion-frontend/public/assets/logo.PNG" id = "logo" >
+        <br >
+        <div class="entrance">
+        <button ontouchstart="" id ="login" class="openLogin" >Log In</button>
+        <br>
+        <button ontouchstart="" id="signup" class="openSignUp" >Sign Up</button>
+            <hr id="entranceLine">
+            <p id="rights">All rights reserved. © </p>
+        </div>
+            <div class='circle' id="circle1" style = 'margin-left:40%;'></div>
+            <div class='circle' id="circle2" style = 'margin-left:35%;'></div>
+            <div class='circle' id="circle3" style = 'margin-left:45%;'></div>
+            <div class='circle' id="circle4" style = 'margin-left:40%;'></div>
+            <div class='circle' id="circle5" style = 'margin-left:35%;'></div>
+            <div class='circle' id="circle6" style = 'margin-left:45%;'></div>
+           
+                <form id="loginForm">
+                    <input ontouchstart="" type="text" id="uname" placeholder="Username"><br><br>
+                    <input ontouchstart="" type="text" id="password" placeholder="Password"><br><br>
+                    <button ontouchstart="" id="formButton" >Log In</button><br>
+                    <hr>
+                    <p id="text">Don't have an account yet?<a id="signUpLink" class="openSignUp" href='#'> Sign up from here!</a></p>
+                </form>
+                <form id="signUpForm">
+                    <input ontouchstart="" type="text" id="uname" placeholder="Username"><br><br>
+                    <input ontouchstart="" type="text" id="email" placeholder="Email"><br><br>
+                    <input ontouchstart="" type="text" id="password" placeholder="Password"><br><br>
+                    <button ontouchstart="" id="formButton" >Sign Up</button>
+                    <hr>
+                    <p id="text">Already have an account?<a id="loginLink" class="openLogin" href='#'> Login from here!</a></p>
+                
+                </form>
+    <script src="../src/index.js"></script>
+</body>
+
+</html>
