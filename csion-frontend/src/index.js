@@ -83,3 +83,8 @@ if ((window.innerWidth < window.innerHeight )) {
 const sleep = milliseconds => { 
     return new Promise(resolve => setTimeout(resolve, milliseconds)); 
   }; 
+
+  $('signUpButton').click(()=>{
+    //server interaction  & if OK route to homepage
+
+  })
