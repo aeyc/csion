@@ -12,7 +12,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/createNewUser", function (req, res) {
-    console.log(req.body.username);
+    console.log("asdasd");
     res.send(true);
 });
 

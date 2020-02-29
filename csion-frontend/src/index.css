@@ -51,6 +51,15 @@ body {
     padding: 20px;
 }
 
+.fade{
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.unfade{
+    opacity: 1;
+}
+
 .circle {
     position: absolute;
     width: 0px;
@@ -103,7 +112,8 @@ input:focus {
 #email {
     background-image: url("../public/assets/mail.png");
 }
-#formButton {
+
+.formButton {
     background-color:#64adb1 !important;
     color:#ffffff !important;
     padding: 14px 45px !important;
