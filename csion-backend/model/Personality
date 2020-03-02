@@ -19,7 +19,9 @@ let PersonalitySchema = new Schema({
     negativeFriendship: [String],
     positiveRelationship: [String],
     negativeRelationship: [String],
-    keywords: [String]
+    keywords: [String],
+    type: String,
+    name: String
 });
 
 module.exports = mongoose.model('Personality', PersonalitySchema);
