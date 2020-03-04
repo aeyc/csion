@@ -40,7 +40,7 @@ function createNormalQuestion(question, requiredTags,providedPositiveTags,provid
 
 function updatePersonality(type,tends, strengths,weaknesses,growths,motivations,stresses,positiveCareer,negativeCareer,jobs,positiveFriendship,negativeFriendship,positiveRelationship,negativeRelationship,keywords) {
 
-    Personality.update({ type: type  }, { tends: tends, strengths: strengths,
+    Personality.update({ type: type  }, {tends: tends, strengths: strengths,
     weaknesses: weaknesses, growths: growths, motivations: motivations,
     Stresses: stresses, positiveCareer: positiveCareer, negativeCareer: negativeCareer,
     jobs: jobs, positiveFriendship: positiveFriendship,  negativeFriendship: negativeFriendship,
@@ -51,10 +51,10 @@ function updatePersonality(type,tends, strengths,weaknesses,growths,motivations,
 
 }
 
-let type = "D";
-let tends = ['Pursuing goals', 'Resourceful', 'Competition', 'High Expectations','Debate','Resist Influence'];
-let strengths = ['Communicate Directly', 'Realistic Expectations', 'Conclusive','Goal Oriented','Urgency', 'Motivating Others','Directing Others','Control'];
-let weaknesses = ['Teamwork' , 'Omitting Details', 'Displaying Impatience', 'Criticize Others', 'Aggressive'];
+let type = "";
+let tends = [];
+let strengths = [];
+let weaknesses = [];
 let growths = [];
 let motivations = [];
 let stresses = [];
