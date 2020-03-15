@@ -4,7 +4,6 @@ Created on Sun Mar 15 17:14:38 2020
 
 @author: MehmetSanisoglu
 """
-
 from pymongo import MongoClient
 
 cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
@@ -65,4 +64,13 @@ post = {"_id": typeId, "tends": tends, "strengths": strengths, "weaknesses": wea
          "negativeRelationship": negativeRelationship, "keywords": keywords, "type": typeCategory, "name": typeName, "__v":0
          }
 
-collection.insert_one(post)
+result = collection.find({"_id":typeId})
+if(len(result) != 0):
+    print("Already inserted this personality"+ typeId)
+    choice = int(input("Want to update the inserted one with this new one? 1:YES, 0:NO  :"))
+    if(choice):
+        collection.insert_one(post)
+    else:
+        print("Insertion aborted")
+else:
+    collection.insert_one(post)
