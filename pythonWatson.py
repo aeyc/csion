@@ -84,20 +84,20 @@ def findKeywords(text):
 ##################################################
 #############-------EMOTIONS-------###############
 ##################################################
-def format(list):
+def format(targetsList):
     targets = '['
     size = len(targetsList)
     index = 0
     while(index < size -1):
-        targets += '"' + targetsList[index]+ '"'
+        targets = targets + '"' + targetsList[index]["text"]+ '"'
         targets += ','
         index += 1
-    targets += '"' +targetsList[size-1] +'"'
+    targets = targets + '"' +targetsList[size-1]["text"] +'"'
     targets += ']'
 
     return targets
 
-def findMax( list ):
+def findMax( emotionWords ):
     joy = 0
     fear = 0
     disgust = 0
@@ -136,18 +136,16 @@ def findSentiment( textParam, targetsParam):
     #INPUTS
     targetsList = targetsParam
     targets = format(targetsList)
-    text = '"'+textParam+'"'
-
+    text = '"' + textParam + '",\n'
 
     dataEmotions = '{\n  "text": '+text+'  "features": {\n    "sentiment": {\n      "targets": '+targets+'\n    },\n    "keywords": {\n      "emotion": true\n    }\n  }\n}'
     emotions= requests.post('https://gateway-lon.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12', headers=headers, params=params, data=dataEmotions, auth=('apikey', '7LNEjCMvP6ZcNShjAkjPob7QSCfIHeZMQkn4Ho3dQgte'))
 
     emotionsResults = emotions.json()
-    emotionsResults["sentiment"]
     emotionWords = emotionsResults["keywords"]
 
     dominant = findMax(emotionWords)
-
+    return dominant
 ##################################################
 #############-------TINKERING-------##############
 ##################################################
@@ -155,12 +153,18 @@ def findSentiment( textParam, targetsParam):
 file = open("inputs.txt","r")
 results = []
 
-desiredTextIndex = 4       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
+desiredTextIndex = 3       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
 
+textInput = ""
 count = 0
 for each in file:
     if(count == desiredTextIndex):
+        textInput = each
         temp = findKeywords(each)
         results.append(temp)
     count +=1
 print(results[0])
+
+
+emotion = findSentiment(textInput,results[0] )
+print(emotion)
