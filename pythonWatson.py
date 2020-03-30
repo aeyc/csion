@@ -128,15 +128,15 @@ def findMax( list ):
         dominantEmotion = "ANGER"
     return dominantEmotion
 
-def findSentiment( text, targets):
+def findSentiment( textParam, targetsParam):
     #FORMATTING
     headers = {'Content-Type': 'application/json'}
     params = (('version', '2019-07-12'),)
 
     #INPUTS
-    targetsList = ["apples","oranges","broccoli"]
+    targetsList = targetsParam
     targets = format(targetsList)
-    text = '"I love apples! I do not like oranges.",\n'
+    text = '"'+textParam+'"'
 
 
     dataEmotions = '{\n  "text": '+text+'  "features": {\n    "sentiment": {\n      "targets": '+targets+'\n    },\n    "keywords": {\n      "emotion": true\n    }\n  }\n}'
