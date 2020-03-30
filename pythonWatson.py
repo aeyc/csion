@@ -136,12 +136,7 @@ def findSentiment( textParam, targetsParam):
     #INPUTS
     targetsList = targetsParam
     targets = format(targetsList)
-<<<<<<< HEAD
     text = '"' + textParam + '",\n'
-=======
-    text = '"'+textParam+'"'
-
->>>>>>> dc38efb688e8c9778d0f03963725a2ae9a1502b7
 
     dataEmotions = '{\n  "text": '+text+'  "features": {\n    "sentiment": {\n      "targets": '+targets+'\n    },\n    "keywords": {\n      "emotion": true\n    }\n  }\n}'
     emotions= requests.post('https://gateway-lon.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12', headers=headers, params=params, data=dataEmotions, auth=('apikey', '7LNEjCMvP6ZcNShjAkjPob7QSCfIHeZMQkn4Ho3dQgte'))
