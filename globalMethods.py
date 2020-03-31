@@ -106,9 +106,9 @@ def getGoodSynonym( originalWord ):
                 if(score > maxScore):       #IF THEY HAVE A BETTER SCORE
                     maxScore = score
                     maxIndex = i
-    if(maxScore > 0.5):
+    if(maxScore > 0.5):             #IF THE SYNONYM IS A RELATIVELY GOOD ONE
         return list[maxIndex]
-    else:
+    else:                           #IF THE SYNONYM IS NOT GOOD ENOUGH JUST RETURN THE ORIGINAL WORD
         return originalWord
 
 #getGoodSynonym("job")
