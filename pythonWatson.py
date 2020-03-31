@@ -24,9 +24,10 @@ def findMostRelevants( listOfWords ):
     return max
 
 def findKeywords(text):
+
+    #CURL CONNECTION PART
     headers = {'Content-Type': 'application/json'}
     data = '{"text":"'+text+'","features":{"sentiment":{},"categories":{},"concepts":{},"entities":{},"keywords":{}}}'
-
     analyzeText = requests.post('https://gateway-lon.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12', headers=headers, data=data, auth=('apikey', '7LNEjCMvP6ZcNShjAkjPob7QSCfIHeZMQkn4Ho3dQgte'))
     textResults = analyzeText.json()
 
@@ -38,6 +39,7 @@ def findKeywords(text):
         additionDescription = input("Enter more detail. Continue from where you left off..\n")
         newInput = text + additionDescription
 
+        #RESENDING THE CURL QUERY REQUIRES TUNING OF THE PARAMETERS
         data = '{"text":"'+newInput+'","features":{"sentiment":{},"categories":{},"concepts":{},"entities":{},"keywords":{}}}'
         analyzeText = requests.post('https://gateway-lon.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12', headers=headers, data=data, auth=('apikey', '7LNEjCMvP6ZcNShjAkjPob7QSCfIHeZMQkn4Ho3dQgte'))
         textResults = analyzeText.json()
@@ -48,36 +50,34 @@ def findKeywords(text):
             importants = len(keywords)
             index = 0
 
-
+            #PREPARING THE PROMPT
             prompt = "Enter an important aspect in your situation, like "
             while(index < importants - 1):
                 prompt = prompt + keywords[index]["text"] + ", "
                 index +=1
             prompt += keywords[index]["text"] + " etc. "
 
+
             count = 0
             missing = 7 - importants
-
-            while(count < missing):
+            while(count < missing):         #WHILE WE STILL HAVE MISSING KEYWORDS
                 entry = input(prompt)
                 entry = gm.capitalize(entry)
 
                 keywordsList = []
-                for each in keywords:
+                for each in keywords:       #STORE THE KEYWORDS IN LIST FOMRAT ( THEY WERE IN DICTIONARY FORMAT )
                     keywordsList.append(each["text"])
 
+                if(entry not in keywordsList):  #IF ENTERED KEYWORD IS NOT IN THE KEYWORDS LIST
 
-                if(entry not in keywordsList):
-
-                    keywords.append({"text":entry, "relevance":0.4})
+                    keywords.append({"text":entry, "relevance":0.5})    #USER ENTERED KEYWORDS HAVE RELEVANCE OF 0.5
                     synonym = gm.getGoodSynonym(entry)
-                    if(synonym): #IF IT IS NOT NONE, (SO NOT MORE THAN ONE WORD)
+                    if(synonym):                                        #IF IT IS NOT NONE, (SO NOT MORE THAN ONE WORD) WE ALSO WANT TO INSERT ITS SYNONYM
                         if(synonym not in keywords):
                             print("The entry is "+entry+" and its synonym is "+synonym)
-                            keywords.append({"text":gm.capitalize(synonym), "relevance":0.4})
+                            keywords.append({"text":gm.capitalize(synonym), "relevance":0.5})
                 count += 1
-
-
+                
     mostRelevants = findMostRelevants(keywords)
     return mostRelevants
 
@@ -153,7 +153,7 @@ def findSentiment( textParam, targetsParam):
 file = open("inputs.txt","r")
 results = []
 
-desiredTextIndex = 3       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
+desiredTextIndex = 2       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
 
 textInput = ""
 count = 0

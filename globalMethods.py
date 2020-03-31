@@ -14,7 +14,13 @@ db = cluster["Personality"]
 collection = db["personalities"]
 keywordsPool = db["keywordsPool"]
 
-def capitalize(entry):
+def getScore(word1, word2): #GET SIMILARITY SCORE OF TWO WORDS
+    syn1 = wordnet.synsets(word1)[0]
+    syn2 = wordnet.synsets(word2)[0]
+    score = syn1.wup_similarity(syn2)
+    return score
+
+def capitalize(entry):      #FORMAT A SENTENCE OF WORD
     capitalized = ""
     cap = True
     for i in range(len(entry)):
@@ -27,14 +33,14 @@ def capitalize(entry):
             capitalized += entry[i].lower()
     return capitalized
 
-def capitalizeList( myList ):
+def capitalizeList( myList ):   #FORMAT A LIST
     result = []
     for dict in myList:
         dict["text"] = capitalize(dict["text"] )
         result.append(dict)
     return result
 
-def capitalizeAll():
+def capitalizeAll():            #FORMAT EVERY ENTRY IN THE DATABASE
     posts = collection.find({})
     for post in posts:
         tempPost = {"_id": typeId, "tends": tends, "strengths": strengths, "weaknesses": weaknesses, "growths": growths, "motivations": motivations, "Stresses": Stresses,
@@ -56,7 +62,7 @@ def capitalizeAll():
         collection.insert_one(tempPost)
     return
 
-def gatherKeywords():
+def gatherKeywords():       #INSERT EVERY KEYWORD TO THE KEYWORDPOOL
     pool = []
     posts = collection.find({})
     for post in posts:
@@ -71,8 +77,7 @@ def gatherKeywords():
 
     return
 
-
-def synonymPopulator(word):
+def synonymPopulator(word):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
     synonyms = []
     for syn in wordnet.synsets(word):
         for l in syn.lemmas():
@@ -83,12 +88,9 @@ def synonymPopulator(word):
 
 
 def getGoodSynonym( originalWord ):
-
     if(" " in originalWord):    #IF MORE THAN ONE WORD ENTERED
         return
     list = synonymPopulator(originalWord)
-    print(list)
-    print(originalWord)
     syn1 = wordnet.synsets(originalWord)[0]
     maxScore = -1
     maxIndex = -1
@@ -98,12 +100,15 @@ def getGoodSynonym( originalWord ):
         if(list[i] != originalWord):
             word = list[i]
             syn2 = wordnet.synsets(word)[0]
-            if(syn1.wup_similarity(syn2)):
+
+            if(syn1.wup_similarity(syn2)):  #SOME WORDS DON'T HAVE A SIMILARITY SCORE
                 score = syn1.wup_similarity(syn2)
-                if(score > maxScore):
+                if(score > maxScore):       #IF THEY HAVE A BETTER SCORE
                     maxScore = score
                     maxIndex = i
-
-    return list[maxIndex]
+    if(maxScore > 0.5):
+        return list[maxIndex]
+    else:
+        return originalWord
 
 #getGoodSynonym("job")
