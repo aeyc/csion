@@ -6,7 +6,7 @@ Created on Sun Mar 29 21:29:42 2020
 """
 from pymongo import MongoClient
 import nltk
-from nltk.corpus import wordnet
+from nltk.corpus import wordnet as wn
 from nltk import word_tokenize
 
 cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
@@ -15,8 +15,8 @@ collection = db["personalities"]
 keywordsPool = db["keywordsPool"]
 
 def getScore(word1, word2): #GET SIMILARITY SCORE OF TWO WORDS
-    syn1 = wordnet.synsets(word1)[0]
-    syn2 = wordnet.synsets(word2)[0]
+    syn1 = wd.synsets(word1)[0]
+    syn2 = wd.synsets(word2)[0]
     score = syn1.wup_similarity(syn2)
     return score
 
@@ -77,9 +77,9 @@ def gatherKeywords():       #INSERT EVERY KEYWORD TO THE KEYWORDPOOL
 
     return
 
-def synonymPopulator(word):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
+def synonymPopulator(word, tag):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
     synonyms = []
-    for syn in wordnet.synsets(word):
+    for syn in wd.synsets(word, pos=tag):
         for l in syn.lemmas():
             if("_" not in l.name()):
                 if(l.name() not in synonyms and l.name() != word):
@@ -90,9 +90,9 @@ def synonymPopulator(word):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
 def getGoodSynonym( originalWord ):
     if(" " in originalWord):    #IF MORE THAN ONE WORD ENTERED
         return
-    list = synonymPopulator(originalWord)
-    syn1 = wordnet.synsets(originalWord)[0]
-
+    syn1 = wd.synsets(originalWord)[0]
+    type = syn1.pos()
+    list = synonymPopulator(originalWord , type)    #LIST OF SIMILAR WORDS WITH SAME POS (PART OF SPEECH)
 
     maxScore = -1
     maxIndex = -1
@@ -101,16 +101,29 @@ def getGoodSynonym( originalWord ):
     for i in range(size):
         if(list[i] != originalWord):
             word = list[i]
-            syn2 = wordnet.synsets(word)[0]
+            syn2 = wd.synsets(word)[0]
 
             if(syn1.wup_similarity(syn2)):  #SOME WORDS DON'T HAVE A SIMILARITY SCORE
                 score = syn1.wup_similarity(syn2)
-                if(score > maxScore):       #IF THEY HAVE A BETTER SCORE
+                if(score > maxScore and score < 1):       #IF THEY HAVE A BETTER SCORE
                     maxScore = score
                     maxIndex = i
-    if(maxScore > 0.5):             #IF THE SYNONYM IS A RELATIVELY GOOD ONE
+    if(maxScore > 0.4):             #IF THE SYNONYM IS A RELATIVELY ACCEPTABLE ONE
         return list[maxIndex]
     else:                           #IF THE SYNONYM IS NOT GOOD ENOUGH JUST RETURN THE ORIGINAL WORD
         return originalWord
 
-getGoodSynonym("angry")
+'''
+
+getGoodSynonym("doubt")
+
+syn1 = wd.synsets("anger")
+syn1
+getGoodSynonym("anger")
+for synset in list(wd.all_synsets('n'))[:10]:
+    print(synset)
+syn1 = wd.synsets("run", pos="v")
+syn1
+
+print(wn.morphy('atheist', wn.NOUN))
+'''

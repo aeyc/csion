@@ -5,6 +5,7 @@ import globalMethods as gm
 ##################################################
 #############-------KEYWORDS-------###############
 ##################################################
+
 def findMostRelevants( listOfWords ):
     max = []
 
@@ -36,7 +37,7 @@ def findKeywords(text):
     if(len(keywords) < 5):  #IF WE COULDN'T GET ENOUGH KEYWORDS, ASK FOR MORE DETAIL
         print("Oops! Going to need more detail than that..If you can't be more specific leave this part empty and continue to typing relevant keywords\n")
         print(text)
-        additionDescription = input("Enter more detail. Continue from where you left off..\n")
+        additionDescription = input("Enter more detail. Continue from where you left off..\n")      #GETTING MORE DETAIL
         newInput = text + additionDescription
 
         #RESENDING THE CURL QUERY REQUIRES TUNING OF THE PARAMETERS
@@ -70,14 +71,14 @@ def findKeywords(text):
 
                 if(entry not in keywordsList):  #IF ENTERED KEYWORD IS NOT IN THE KEYWORDS LIST
 
-                    keywords.append({"text":entry, "relevance":0.5})    #USER ENTERED KEYWORDS HAVE RELEVANCE OF 0.5
+                    keywords.append({"text":entry, "relevance":0.6})    #USER ENTERED KEYWORDS HAVE RELEVANCE OF 0.5
                     synonym = gm.getGoodSynonym(entry)
                     if(synonym):                                        #IF IT IS NOT NONE, (SO NOT MORE THAN ONE WORD) WE ALSO WANT TO INSERT ITS SYNONYM
                         if(synonym not in keywords):
                             print("The entry is "+entry+" and its synonym is "+synonym)
-                            keywords.append({"text":gm.capitalize(synonym), "relevance":0.5})
+                            keywords.append({"text":gm.capitalize(synonym), "relevance":0.6})
                 count += 1
-                
+
     mostRelevants = findMostRelevants(keywords)
     return mostRelevants
 
@@ -153,7 +154,7 @@ def findSentiment( textParam, targetsParam):
 file = open("inputs.txt","r")
 results = []
 
-desiredTextIndex = 2       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
+desiredTextIndex = 6       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
 
 textInput = ""
 count = 0
