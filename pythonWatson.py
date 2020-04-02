@@ -103,6 +103,7 @@ def findMax( emotionWords ):
     fear = 0
     disgust = 0
     anger = 0
+    sadness = 0
 
     for entry in emotionWords:
         emotions = entry["emotion"]
@@ -115,18 +116,29 @@ def findMax( emotionWords ):
                 anger += emotions["anger"]
             elif(key == "disgust"):
                 disgust += emotions["disgust"]
+            elif(key == "sadness"):
+                sadness += emotions["sadness"]
 
-    maximum = max(joy,fear,anger,disgust)
+    maximum = max(joy,fear,anger,disgust,sadness)
     dominantEmotion = ''
+    mood = ''
 
     if (maximum == joy):
         dominantEmotion = "JOY"
+        mood = "POSITIVE"
     if (maximum == fear):
         dominantEmotion = "FEAR"
+        mood = "NEGATIVE"
     if (maximum == disgust):
         dominantEmotion = "DISGUST"
+        mood = "NEGATIVE"
     if (maximum == anger):
         dominantEmotion = "ANGER"
+        mood = "NEGATIVE"
+    if (maximum == sadness):
+        dominantEmotion = "SADNESS"
+        mood = "NEGATIVE"
+
     return dominantEmotion
 
 def findSentiment( textParam, targetsParam):
@@ -167,5 +179,5 @@ for each in file:
 print(results[0])
 
 
-emotion = findSentiment(textInput,results[0] )
+emotion = findSentiment(textInput, results[0])
 print(emotion)
