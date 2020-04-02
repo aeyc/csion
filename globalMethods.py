@@ -82,7 +82,7 @@ def synonymPopulator(word):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
     for syn in wordnet.synsets(word):
         for l in syn.lemmas():
             if("_" not in l.name()):
-                if(l.name() not in synonyms):
+                if(l.name() not in synonyms and l.name() != word):
                     synonyms.append(capitalize(l.name()))
     return synonyms
 
@@ -92,6 +92,8 @@ def getGoodSynonym( originalWord ):
         return
     list = synonymPopulator(originalWord)
     syn1 = wordnet.synsets(originalWord)[0]
+
+
     maxScore = -1
     maxIndex = -1
     size = len(list)
@@ -111,4 +113,4 @@ def getGoodSynonym( originalWord ):
     else:                           #IF THE SYNONYM IS NOT GOOD ENOUGH JUST RETURN THE ORIGINAL WORD
         return originalWord
 
-#getGoodSynonym("job")
+getGoodSynonym("angry")
