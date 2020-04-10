@@ -79,7 +79,7 @@ def gatherKeywords():       #INSERT EVERY KEYWORD TO THE KEYWORDPOOL
 
 def synonymPopulator(word, tag):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
     synonyms = []
-    for syn in wd.synsets(word, pos=tag):
+    for syn in wd.synsets(word, pos=tag):   #TAG IS THE PART OF SPEECH OF THE WORD
         for l in syn.lemmas():
             if("_" not in l.name()):
                 if(l.name() not in synonyms and l.name() != word):
@@ -112,18 +112,3 @@ def getGoodSynonym( originalWord ):
         return list[maxIndex]
     else:                           #IF THE SYNONYM IS NOT GOOD ENOUGH JUST RETURN THE ORIGINAL WORD
         return originalWord
-
-'''
-
-getGoodSynonym("doubt")
-
-syn1 = wd.synsets("anger")
-syn1
-getGoodSynonym("anger")
-for synset in list(wd.all_synsets('n'))[:10]:
-    print(synset)
-syn1 = wd.synsets("run", pos="v")
-syn1
-
-print(wn.morphy('atheist', wn.NOUN))
-'''

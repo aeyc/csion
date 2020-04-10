@@ -160,7 +160,7 @@ def findSentiment( textParam, targetsParam):
     dominant = findMax(emotionWords)
     return dominant
 ##################################################
-#############-------TINKERING-------##############
+#############---------USING---------##############
 ##################################################
 
 file = open("inputs.txt","r")
