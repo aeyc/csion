@@ -166,7 +166,7 @@ def findSentiment( textParam, targetsParam):
 file = open("inputs.txt","r")
 results = []
 
-desiredTextIndex = 6       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
+desiredTextIndex = 2       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
 
 textInput = ""
 count = 0

@@ -5,9 +5,7 @@ Created on Sun Mar 29 21:29:42 2020
 @author: MehmetSanisoglu
 """
 from pymongo import MongoClient
-import nltk
 from nltk.corpus import wordnet as wn
-from nltk import word_tokenize
 
 cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster["Personality"]
@@ -15,8 +13,8 @@ collection = db["personalities"]
 keywordsPool = db["keywordsPool"]
 
 def getScore(word1, word2): #GET SIMILARITY SCORE OF TWO WORDS
-    syn1 = wd.synsets(word1)[0]
-    syn2 = wd.synsets(word2)[0]
+    syn1 = wn.synsets(word1)[0]
+    syn2 = wn.synsets(word2)[0]
     score = syn1.wup_similarity(syn2)
     return score
 
@@ -43,14 +41,15 @@ def capitalizeList( myList ):   #FORMAT A LIST
 def capitalizeAll():            #FORMAT EVERY ENTRY IN THE DATABASE
     posts = collection.find({})
     for post in posts:
-        tempPost = {"_id": typeId, "tends": tends, "strengths": strengths, "weaknesses": weaknesses, "growths": growths, "motivations": motivations, "Stresses": Stresses,
-                 "positiveCareer": positiveCareer, "negativeCareer": negativeCareer, "jobs": jobs, "positiveFriendship": positiveFriendship, "negativeFriendship": negativeFriendship,
-                 "positiveRelationship": positiveRelationship,"negativeRelationship": negativeRelationship, "keywords": keywords, "type": typeCategory, "name": typeName, "__v":0
+        tempPost = {"_id": "", "tends": "", "strengths": "", "weaknesses": "", "growths": "", "motivations": "", "Stresses": "",
+                 "positiveCareer": "", "negativeCareer": "", "jobs": "", "positiveFriendship": "", "negativeFriendship": "",
+                 "positiveRelationship": "","negativeRelationship": "", "keywords": "", "type": "", "name": "", "__v":0
                  }
         tempPost["_id"] = post["_id"]
         tempPost["type"] = post["type"]
         tempPost["name"] = post["name"]
-        sorry = ""
+
+
         for key in post:
             if(key != "_id" and key != "__v" and key != "name" and key != "type"):
                 line = post[key]
@@ -79,7 +78,7 @@ def gatherKeywords():       #INSERT EVERY KEYWORD TO THE KEYWORDPOOL
 
 def synonymPopulator(word, tag):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
     synonyms = []
-    for syn in wd.synsets(word, pos=tag):   #TAG IS THE PART OF SPEECH OF THE WORD
+    for syn in wn.synsets(word, pos=tag):   #TAG IS THE PART OF SPEECH OF THE WORD
         for l in syn.lemmas():
             if("_" not in l.name()):
                 if(l.name() not in synonyms and l.name() != word):
@@ -90,7 +89,7 @@ def synonymPopulator(word, tag):     #GENERATE SYNONYMS FOR AN INPUTTED WORD
 def getGoodSynonym( originalWord ):
     if(" " in originalWord):    #IF MORE THAN ONE WORD ENTERED
         return
-    syn1 = wd.synsets(originalWord)[0]
+    syn1 = wn.synsets(originalWord)[0]
     type = syn1.pos()
     list = synonymPopulator(originalWord , type)    #LIST OF SIMILAR WORDS WITH SAME POS (PART OF SPEECH)
 
@@ -101,7 +100,7 @@ def getGoodSynonym( originalWord ):
     for i in range(size):
         if(list[i] != originalWord):
             word = list[i]
-            syn2 = wd.synsets(word)[0]
+            syn2 = wn.synsets(word)[0]
 
             if(syn1.wup_similarity(syn2)):  #SOME WORDS DON'T HAVE A SIMILARITY SCORE
                 score = syn1.wup_similarity(syn2)
