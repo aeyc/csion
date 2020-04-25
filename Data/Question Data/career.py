@@ -20,7 +20,7 @@ for i in range(0,len(df)):
             print(j)
             if (df.iloc[i])[j] != numpy.nan or type((df.iloc[i])[j]) != float:
                 print((df.iloc[i])[j])
-                (df.iloc[i])[j] = (df.iloc[i])[j].split(",")
+                (df.iloc[i])[j] = str((df.iloc[i])[j]).split(",")
 try: 
     cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
     print("Connected") 
