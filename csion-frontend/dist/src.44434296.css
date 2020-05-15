@@ -42,6 +42,7 @@ button {
     color:#ffffff !important;
     padding: 14px 80px !important;
 }
+
 button:active{
 	position:relative;
 	top:1px;
@@ -131,6 +132,63 @@ a {
     color: #7D9BE8;
     font-size: 10px;
 }
+.navbar {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
 
+    border-top: #8b8b8b;
+    border-style: outset;
+    border-width: 1px;  
+}
+  
+  .navbar a {
+    color: #919191;
+    text-align: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .navbar a.active {
+    background-color: rgb(146, 196, 187);
+    color: rgb(255, 255, 255);
+  }
+
+  .categoryButton {
+    width: 15%;
+    padding:15px;
+  }
+
+  .subCategories {
+    display:none;
+  }
+
+  .subcategoryButton {
+    font-size: 15px;
+    width: 25%;
+  }
+
+  .backButton {
+      background-color: #64adb1;
+      color:white;
+      width: 8%;
+      padding-right:10px;
+      padding-left:10px;
+      display: none;
+  }
 
 /*# sourceMappingURL=/src.44434296.css.map */
