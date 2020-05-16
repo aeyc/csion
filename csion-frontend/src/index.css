@@ -237,3 +237,7 @@ a {
     font-family: 'Montserrat';
     color: white;
  }
+
+ #questionHeader {
+     display: none;
+ }
