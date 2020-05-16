@@ -40,8 +40,12 @@
   });
   $("#responseForm").append('</ul></form>');
   $("#responseForm").after("<button id=\"cont\" onClick= \"window.location.href = 'http://localhost:1234/home.html'\" style = \"background-color:#ffffff; color:#64adb1; border-radius: 8px; padding: 10px 25px; display: inline-block; border: none; outline: none; font-family: 'Montserrat';\">Continue</button>");
-  post("http://localhost:3000/userInfo", function (response) {
-    console.log('Here is the personality JSON response:', response);
+  $.post("http://localhost:3000/userInfo", response, function (data) {
+    if (data) {
+      console.log('Success');
+    } else {
+      console.log('Failed');
+    }
   });
 };</script>
 
