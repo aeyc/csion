@@ -117,259 +117,182 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../src/entrance.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var view = "<div id=\"entrance\"><img src=\"assets/logo.PNG\" id=\"logo\">\n    <br>\n    <div class=\"entrance\">\n        <button ontouchstart=\"\" id=\"login\" class=\"openLogin\">Log In</button>\n        <br>\n        <button ontouchstart=\"\" id=\"signup\" class=\"openSignUp\">Sign Up</button>\n        <hr id=\"entranceLine\">\n        <p id=\"rights\">All rights reserved. \xA9 </p>\n    </div>\n    <div class='circle' id=\"circle1\" style='margin-left:40%;'></div>\n    <div class='circle' id=\"circle2\" style='margin-left:35%;'></div>\n    <div class='circle' id=\"circle3\" style='margin-left:45%;'></div>\n    <div class='circle' id=\"circle4\" style='margin-left:40%;'></div>\n    <div class='circle' id=\"circle5\" style='margin-left:35%;'></div>\n    <div class='circle' id=\"circle6\" style='margin-left:45%;'></div>\n\n    <form class=\"fade\" id=\"loginForm\">\n        <input ontouchstart=\"\" type=\"text\" id=\"uname\" placeholder=\"Username\"><br><br>\n        <input ontouchstart=\"\" type=\"text\" id=\"password\" placeholder=\"Password\"><br><br>\n        <button ontouchstart=\"\" class=\"formButton\">Log In</button><br>\n        <hr>\n        <p id=\"text\">Don't have an account yet?<a id=\"signUpLink\" class=\"openSignUp\" href='#'> Sign up from here!</a>\n        </p>\n    </form>\n    <form class=\"fade\" id=\"signUpForm\">\n        <input ontouchstart=\"\" type=\"text\" id=\"uname\" placeholder=\"Username\"><br><br>\n        <input ontouchstart=\"\" type=\"text\" id=\"email\" placeholder=\"Email\"><br><br>\n        <input ontouchstart=\"\" type=\"text\" id=\"password\" placeholder=\"Password\"><br><br>\n        <button ontouchstart=\"\" class=\"formButton\" id=\"signUpButton\">Sign Up</button>\n        <hr>\n        <p id=\"text\">Already have an account?<a id=\"loginLink\" class=\"openLogin\" href='#'> Login from here!</a></p>\n\n    </form></div>";
-
-var Entrance =
-/*#__PURE__*/
-function () {
-  function Entrance() {
-    var _this = this;
-
-    _classCallCheck(this, Entrance);
-
-    this.view = jQuery(view);
-
-    var delay = function delay(ms) {
-      return new Promise(function (res) {
-        return setTimeout(res, ms);
-      });
-    };
-
-    this.view.find(".openLogin").click(function () {
-      _this.view.find(".entrance").hide();
-
-      _this.view.find("#signUpForm").hide();
-
-      _this.view.find(".circle").removeClass('open');
-
-      if (window.innerWidth < window.innerHeight) {
-        _this.view.find("#logo").css("margin-bottom", "30%");
-      } else {
-        _this.view.find("#logo").css("margin-top", "5% ");
-      }
-
-      var k = 1;
-
-      for (var i = 1; i < 7; i++) {
-        var element = "";
-        sleep(200 * i).then(function () {
-          element = "#circle" + k.toString();
-
-          _this.view.find(element).addClass('open');
-
-          k++;
-        });
-      }
-
-      sleep(1800).then(function () {
-        _this.view.find("#loginForm").show();
-
-        setTimeout(function () {
-          _this.view.find("#loginForm").addClass("unfade");
-        }, 100);
-      });
-    });
-    this.view.find(".openSignUp").click(function () {
-      _this.view.find(".entrance").hide();
-
-      _this.view.find("#loginForm").hide();
-
-      _this.view.find(".circle").removeClass('open');
-
-      if (window.innerWidth < window.innerHeight) {
-        _this.view.find("#logo").css("margin-bottom", "30%");
-      } else {
-        _this.view.find("#logo").css("margin-top", "5% ");
-      }
-
-      var k = 1;
-
-      for (var i = 1; i < 7; i++) {
-        var element = "";
-        sleep(200 * i).then(function () {
-          element = "#circle" + k.toString();
-
-          _this.view.find(element).addClass('open');
-
-          k++;
-        });
-      }
-
-      sleep(1800).then(function () {
-        _this.view.find("#signUpForm").show();
-
-        setTimeout(function () {
-          _this.view.find("#signUpForm").addClass("unfade"); //this.view.find("html").empty().load("../public/index1.html");
-
-        }, 100);
-      });
-    });
-
-    if (window.innerWidth < window.innerHeight) {
-      //mobile
-      this.view.find("#logo").css({
-        "width": "50%",
-        "margin-bottom": "45%",
-        "margin-top": "30%"
-      });
-      this.view.find("button:hover, button:active").css({
-        "position": "relative",
-        "top": "1px"
-      });
-      this.view.find("#circle1").css({
-        "margin-left": "20%",
-        "margin-top": "70%"
-      });
-      this.view.find("#circle2").css({
-        "margin-left": "-15%",
-        "margin-top": "73%"
-      });
-      this.view.find("#circle3").css({
-        "margin-left": "65%",
-        "margin-top": "74%"
-      });
-      this.view.find("#circle4").css({
-        "margin-left": "25%",
-        "margin-top": "115%"
-      });
-      this.view.find("#circle5").css({
-        "margin-left": "-15%",
-        "margin-top": "115%"
-      });
-      this.view.find("#circle6").css({
-        "margin-left": "65%",
-        "margin-top": "115%"
-      });
-      this.view.find("#loginForm").css({
-        "margin-left": "12%",
-        "margin-top": "100%"
-      });
-      this.view.find("#signUpForm").css({
-        "margin-left": "12%",
-        "margin-top": "82%"
-      });
-    } else {
-      //desktop
-      this.view.find("button:active").css({
-        "position": "relative",
-        "top": "1px"
-      });
-      this.view.find("#signup:hover").css({
-        "background-color": "#ffffff  !important",
-        "color": "#539093 !important"
-      });
-      this.view.find("#login:hover").css({
-        "background-color": "#64adb1 ",
-        "color": "#ffffff"
-      });
-      this.view.find("hr").css("margin-top", "10%");
-      this.view.find("#circle1").css({
-        "margin-left": "52%",
-        "margin-top": "17%"
-      });
-      this.view.find("#circle2").css({
-        "margin-left": "32%",
-        "margin-top": "18%"
-      });
-      this.view.find("#circle3").css({
-        "margin-left": "42%",
-        "margin-top": "16%"
-      });
-      this.view.find("#circle4").css({
-        "margin-left": "52%",
-        "margin-top": "30%"
-      });
-      this.view.find("#circle5").css({
-        "margin-left": "32%",
-        "margin-top": "30%"
-      });
-      this.view.find("#circle6").css({
-        "margin-left": "42%",
-        "margin-top": "30%"
-      });
-      this.view.find("#loginForm").css({
-        "margin-left": "40%",
-        "margin-top": "25%"
-      });
-      this.view.find("#signUpForm").css({
-        "margin-left": "40%",
-        "margin-top": "23%"
-      });
-    }
-
-    var sleep = function sleep(milliseconds) {
-      return new Promise(function (resolve) {
-        return setTimeout(resolve, milliseconds);
-      });
-    };
-
-    this.view.find('#signUpButton').click(function () {
-      console.log("asdasd");
-
-      _this.view.find.post("http://localhost:3000/createNewUser", function (data) {
-        console.log(data);
-      });
-    });
-    $("#content").append(this.view);
-  }
-
-  _createClass(Entrance, [{
-    key: "remove",
-    value: function remove() {
-      this.view.remove();
-    }
-  }]);
-
-  return Entrance;
-}();
-
-exports.default = Entrance;
-},{}],"../src/navbar.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var view = "";
-
-var Navbar = function Navbar() {
-  _classCallCheck(this, Navbar);
+})({"../src/index.js":[function(require,module,exports) {
+var delay = function delay(ms) {
+  return new Promise(function (res) {
+    return setTimeout(res, ms);
+  });
 };
 
-exports.default = Navbar;
-},{}],"../src/index.js":[function(require,module,exports) {
-"use strict";
+var signUpClicked = false;
+$(".openLogin").click(function () {
+  $(".entrance").hide();
+  $("#signUpForm").hide();
+  $(".circle").removeClass('open');
 
-var _entrance = _interopRequireDefault(require("./entrance.js"));
+  if (window.innerWidth < window.innerHeight) {
+    $("#logo").css("margin-bottom", "30%");
+  } else {
+    $("#logo").css("margin-top", "5% ");
+  }
 
-var _navbar = _interopRequireDefault(require("./navbar.js"));
+  var k = 1;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  for (var i = 1; i < 7; i++) {
+    var element = "";
+    sleep(200 * i).then(function () {
+      element = "#circle" + k.toString();
+      $(element).addClass('open');
+      k++;
+    });
+  }
 
-var entrance = new _entrance.default();
-var navbar = new _navbar.default();
-setTimeout(function () {
-  entrance.remove();
-}, 5000);
-},{"./entrance.js":"../src/entrance.js","./navbar.js":"../src/navbar.js"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  sleep(1800).then(function () {
+    $("#loginForm").show();
+  });
+});
+$(".openSignUp").click(function () {
+  $(".entrance").hide();
+  $("#loginForm").hide();
+  $(".circle").removeClass('open');
+
+  if (window.innerWidth < window.innerHeight) {
+    $("#logo").css("margin-bottom", "30%");
+  } else {
+    $("#logo").css("margin-top", "5% ");
+  }
+
+  var k = 1;
+
+  for (var i = 1; i < 7; i++) {
+    var element = "";
+    sleep(200 * i).then(function () {
+      element = "#circle" + k.toString();
+      $(element).addClass('open');
+      k++;
+    });
+  }
+
+  sleep(1800).then(function () {
+    $("#signUpForm").show();
+  });
+});
+
+if (window.innerWidth < window.innerHeight) {
+  //mobile
+  $("#logo").css({
+    "width": "50%",
+    "margin-bottom": "45%",
+    "margin-top": "30%"
+  });
+  $("button:hover, button:active").css({
+    "position": "relative",
+    "top": "1px"
+  });
+  $("#circle1").css({
+    "margin-left": "20%",
+    "margin-top": "70%"
+  });
+  $("#circle2").css({
+    "margin-left": "-15%",
+    "margin-top": "73%"
+  });
+  $("#circle3").css({
+    "margin-left": "65%",
+    "margin-top": "74%"
+  });
+  $("#circle4").css({
+    "margin-left": "25%",
+    "margin-top": "115%"
+  });
+  $("#circle5").css({
+    "margin-left": "-15%",
+    "margin-top": "115%"
+  });
+  $("#circle6").css({
+    "margin-left": "65%",
+    "margin-top": "115%"
+  });
+  $("#loginForm").css({
+    "margin-left": "12%",
+    "margin-top": "100%"
+  });
+  $("#signUpForm").css({
+    "margin-left": "12%",
+    "margin-top": "82%"
+  });
+} else {
+  //desktop
+  $("button:active").css({
+    "position": "relative",
+    "top": "1px"
+  });
+  $("#signup:hover").css({
+    "background-color": "#ffffff  !important",
+    "color": "#539093 !important"
+  });
+  $("#login:hover").css({
+    "background-color": "#64adb1 ",
+    "color": "#ffffff"
+  });
+  $("hr").css("margin-top", "10%");
+  $("#circle1").css({
+    "margin-left": "52%",
+    "margin-top": "17%"
+  });
+  $("#circle2").css({
+    "margin-left": "32%",
+    "margin-top": "18%"
+  });
+  $("#circle3").css({
+    "margin-left": "42%",
+    "margin-top": "16%"
+  });
+  $("#circle4").css({
+    "margin-left": "52%",
+    "margin-top": "30%"
+  });
+  $("#circle5").css({
+    "margin-left": "32%",
+    "margin-top": "30%"
+  });
+  $("#circle6").css({
+    "margin-left": "42%",
+    "margin-top": "30%"
+  });
+  $("#loginForm").css({
+    "margin-left": "40%",
+    "margin-top": "25%"
+  });
+  $("#signUpForm").css({
+    "margin-left": "40%",
+    "margin-top": "23%"
+  });
+}
+
+var sleep = function sleep(milliseconds) {
+  return new Promise(function (resolve) {
+    return setTimeout(resolve, milliseconds);
+  });
+};
+
+$('#signupbutton').click(function () {
+  //server interaction
+  $.post("http://localhost:3000/createNewUser", function (data) {
+    if (data) {
+      window.location = "http://localhost:1234/home.html";
+    }
+  });
+});
+$('#loginbutton').click(function () {
+  //server interaction
+  $.post("http://localhost:3000/auth", function (data) {
+    if (data) {
+      window.location = "http://localhost:1234/home.html";
+    }
+  });
+});
+},{}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -397,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49685" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49533" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
