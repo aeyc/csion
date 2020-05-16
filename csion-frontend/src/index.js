@@ -63,7 +63,6 @@ if ((window.innerWidth < window.innerHeight )) {
     
 } else {
     //desktop
-
     $("button:active").css({ "position": "relative", "top": "1px" });
     $("#signup:hover").css({ "background-color": "#ffffff  !important", "color": "#539093 !important" });
     $("#login:hover").css({ "background-color": "#64adb1 ", "color": "#ffffff" });

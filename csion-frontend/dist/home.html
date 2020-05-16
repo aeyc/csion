@@ -18,8 +18,11 @@
 </head>
 
 <body>
-<h2 style="font-family: 'Montserrat'; color:white">Let me give a decision for you about...</h2>
+<h2 id="categoryHeader" style="font-family: 'Montserrat'; color:white">Let me give a decision for you about...</h2>
+<h3 id="questionHeader" style="font-family: 'Montserrat'; color:white">Please choose the most related answer.</h3>
+
 <br>
+
 <div id="categories">
     <button ontouchstart="" id="career" class="categoryButton">Career</button>
     <br>
@@ -29,29 +32,35 @@
 </div>
 
 <div id="careerSub" class="subCategories">
-    <button ontouchstart="" id="quit" class="subcategoryButton">Quitting The Job</button>
+    <h2 style="font-family: 'Roboto'; color:white">Career</h2>
+    <button ontouchstart="" id="quit" class="subcategoryButton">Quitting</button>
     <br>
-    <button ontouchstart="" id="office" class="subcategoryButton">Changing Office</button>
+    <button ontouchstart="" id="office" class="subcategoryButton">Office</button>
     <br>
-    <button ontouchstart="" id="change" class="subcategoryButton">Changing Company</button>
+    <button ontouchstart="" id="change" class="subcategoryButton">Change</button>
 </div>
 
 <div id="relationshipSub" class="subCategories">
-    <button ontouchstart="" id="quit" class="subcategoryButton">Quitting The Job</button>
+    <h2 style="font-family: 'Roboto'; color:white">Relationship</h2>
+    <button ontouchstart="" id="social" class="subcategoryButton">Social</button>
     <br>
-    <button ontouchstart="" id="office" class="subcategoryButton">Changing Office</button>
+    <button ontouchstart="" id="romantic" class="subcategoryButton">Romantic</button>
     <br>
-    <button ontouchstart="" id="change" class="subcategoryButton">Changing Company</button>
+    <button ontouchstart="" id="friendship" class="subcategoryButton">Friendship</button>
 </div>
 
 <div id="educationSub" class="subCategories">
-    <button ontouchstart="" id="quit" class="subcategoryButton">Quitting The Job</button>
+    <h2 style="font-family: 'Roboto'; color:white">Education</h2>
+    <button ontouchstart="" id="quit" class="subcategoryButton">Quit/Change</button>
     <br>
-    <button ontouchstart="" id="office" class="subcategoryButton">Changing Office</button>
+    <button ontouchstart="" id="group" class="subcategoryButton">Study Group</button>
     <br>
-    <button ontouchstart="" id="change" class="subcategoryButton">Changing Company</button>
+    <button ontouchstart="" id="field" class="subcategoryButton">Study Field</button>
 </div>
 
+<div id="problems"></div>
+<form id="questions"></form>
+<div id="decision"></div>
 <button ontouchstart="" class="backButton" id="back1"><i class="fas fa-arrow-left"></i> Back</button>
 
 
@@ -62,7 +71,7 @@
 
 
 <div class="navbar">
-        <a href="#" class="active">Home</a>
+        <a href="/home.html" class="active">Home</a>
         <a href="/profile.html">News</a>
         <a href="/settings.html">Contact</a>
 </div>

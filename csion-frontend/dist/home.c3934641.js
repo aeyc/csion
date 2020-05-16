@@ -125,6 +125,9 @@ if (window.innerWidth < window.innerHeight) {
     "width": "70%"
   });
   $('.subcategoryButton').css({
+    "width": "70%"
+  });
+  $('.problemButton').css({
     "width": "90%"
   });
   $('.navbar a').css({
@@ -153,16 +156,47 @@ $('#education').click(function () {
 });
 $('#back1').click(function () {
   $('#back1').hide();
-  $('#educationSub').hide();
-  $('#relationshipSub').hide();
-  $('#careerSub').hide();
+  $('.subCategories').hide();
   $('#categories').show();
 });
 $('.subcategoryButton').click(function () {
-  get("http://localhost:3000/getQuestions/" + $(_this).attr('id'), function (data) {
-    //data should be array of strings
-    console.log(data); //we should keep array of yes/no answers
-    //post answers to backend and get decision, show decision to user
+  $('#back1').hide();
+  $('.subCategories').hide();
+  get("http://localhost:3000/getProblems/" + $(_this).attr('id'), function (data) {
+    //data should be array of strings: problems
+    console.log(data);
+    data.forEach(function (element) {
+      $('#problems').append("<button ontouchstart=\"\" class=\"problemButton\">" + element + "</button> <br>");
+    });
+  });
+  $('#problems').show();
+});
+$('.problemButton').click(function () {
+  $('#problems').hide();
+  $('#categoryHeader').hide();
+  $('#questionHeader').show();
+  get("http://localhost:3000/getProblems/" + $(_this).text(), function (data) {
+    //data should be array of strings: questions
+    console.log(data);
+    data.forEach(element, function (index) {
+      $('#questions').append("<div class= \"question\">\n            <p>" + element + "</p>\n            <input type=\"radio\" id=\"positive" + index + "\" name=\"" + index + "\" value=\"yes\">\n            <label for=\"positive" + index + "\">Yes</label>\n            <input type=\"radio\" id=\"negative" + index + "\" name=\"" + index + "\" value=\"no\" >\n            <label for=\"negative" + index + "\">No</label>\n        </div><br> ");
+    });
+    $('#questions').append("<input type=\"submit\" value=\"Submit\" id = \"submitQuestions\">");
+    $('#questions').submit(function () {
+      //we should keep array of yes/no answers
+      var answers = [];
+      data.forEach(element, function (index) {
+        answers.push($('input[name=' + index + ']:checked').val());
+      }); //post answers to backend and get decision, show decision to user
+
+      post("http://localhost:3000/questionAnswers", answers, function (data) {
+        console.log("Successful!");
+        $('#questions').hide();
+        $('#questionHeader').hide();
+        $('#decision').show();
+        $('#decision').append("<p>" + data + "</p>");
+      });
+    });
   });
 });
 },{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

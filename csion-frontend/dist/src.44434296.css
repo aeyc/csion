@@ -83,14 +83,14 @@ body {
     height: 255px;
 }
 
-form {
+.indexForm {
     position: absolute;
     display:none;
     top: 0px;
     left: 0px;
     z-index: 1;
 }
-input {
+.indexForm input {
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
@@ -155,7 +155,6 @@ a {
     display: inline-block;
     text-decoration: none;
     font-size: 17px;
-
   }
   
   .navbar a:hover {
@@ -168,6 +167,11 @@ a {
     color: rgb(255, 255, 255);
   }
 
+ .subcategoryButton {
+    width: 15%;
+    padding:15px;
+  }
+
   .categoryButton {
     width: 15%;
     padding:15px;
@@ -177,7 +181,7 @@ a {
     display:none;
   }
 
-  .subcategoryButton {
+  .problemButton {
     font-size: 15px;
     width: 25%;
   }
@@ -190,5 +194,48 @@ a {
       padding-left:10px;
       display: none;
   }
+
+  #problems {
+     display: none;
+  }
+   
+  .question {
+    background-color:#ffffff;
+	border-radius:35px;
+    border: none;
+    color:#223e3f;
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 13px;
+    font-family: 'Montserrat';
+    padding: 10px;
+  }
+
+  #questions input {
+    background-color:#64adb1;
+	border-radius:35px;
+    border: none;
+    color:#ffffff;
+    padding: 14px;
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 13px;
+    outline: none;
+    font-family: 'Montserrat';
+  }
+
+  #questions {
+    display: none;
+ }
+
+ #decision {
+    display: none;
+ }
+
+ #decision p {
+    font-size: 13px;
+    font-family: 'Montserrat';
+    color: white;
+ }
 
 /*# sourceMappingURL=/src.44434296.css.map */
