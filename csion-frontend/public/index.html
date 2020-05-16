@@ -18,7 +18,38 @@
 </head>
 
 <body>
-    <div id="content"></div>
+    <img src="./assets/logo.PNG" id="logo">
+    <br>
+    <div class="entrance">
+        <button id="login" class="openLogin">Log In</button>
+        <br>
+        <button id="signup" class="openSignUp">Sign Up</button>
+        <hr id="entranceLine">
+        <p id="rights">All rights reserved. © </p>
+    </div>
+    <div class='circle' id="circle1" style='margin-left:40%;'></div>
+    <div class='circle' id="circle2" style='margin-left:35%;'></div>
+    <div class='circle' id="circle3" style='margin-left:45%;'></div>
+    <div class='circle' id="circle4" style='margin-left:40%;'></div>
+    <div class='circle' id="circle5" style='margin-left:35%;'></div>
+    <div class='circle' id="circle6" style='margin-left:45%;'></div>
+
+    <div class="form" id="loginForm">
+        <input type="text" class="uname" id="loginUsername" placeholder="Username"><br><br>
+        <input type="password" class="password" id="loginPassword" placeholder="Password"><br><br>
+        <button class="formButton" id="loginbutton">Log In</button><br>
+        <hr>
+        <p id="text">Don't have an account yet?<a id="signUpLink" class="openSignUp"> Sign up from here!</a>
+        </p>
+    </div>
+    <div class="form" id="signUpForm">
+        <input type="text" class="uname" id="signupUsername" placeholder="Username"><br><br>
+        <input type="text" class="email" id="signupEmail" placeholder="Email"><br><br>
+        <input type="password" class="password" id="signupPassword" placeholder="Password"><br><br>
+        <button class="formButton" id="signupbutton">Sign Up</button>
+        <hr>
+        <p id="text">Already have an account?<a id="loginLink" class="openLogin"> Login from here!</a></p>
+    </div>
     <script src="../src/index.js"></script>
 </body>
 
