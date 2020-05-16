@@ -27,7 +27,7 @@ $(".openSignUp").click(() => {
     $(".entrance").hide();
     $("#loginForm").hide();
     $(".circle").removeClass('open');
-    if ((window.innerWidth < window.innerHeight)) {
+    if ((window.innerWidth < window.innerHeight )){
         $("#logo").css("margin-bottom", "30%");
     } else {
         $("#logo").css("margin-top", "5% ");
@@ -86,7 +86,7 @@ $('#signupbutton').click(() => {
     //server interaction
     $.post("http://localhost:3000/createNewUser", (data) => {
         if (data) {
-            window.location = "http://localhost:1234/home.html";
+            window.location = "http://localhost:1234/test.html";
         }
     });
 });

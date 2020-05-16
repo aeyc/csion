@@ -117,182 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../src/index.js":[function(require,module,exports) {
-var delay = function delay(ms) {
-  return new Promise(function (res) {
-    return setTimeout(res, ms);
-  });
-};
+})({"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-var signUpClicked = false;
-$(".openLogin").click(function () {
-  $(".entrance").hide();
-  $("#signUpForm").hide();
-  $(".circle").removeClass('open');
-
-  if (window.innerWidth < window.innerHeight) {
-    $("#logo").css("margin-bottom", "30%");
-  } else {
-    $("#logo").css("margin-top", "5% ");
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  var k = 1;
-
-  for (var i = 1; i < 7; i++) {
-    var element = "";
-    sleep(200 * i).then(function () {
-      element = "#circle" + k.toString();
-      $(element).addClass('open');
-      k++;
-    });
-  }
-
-  sleep(1800).then(function () {
-    $("#loginForm").show();
-  });
-});
-$(".openSignUp").click(function () {
-  $(".entrance").hide();
-  $("#loginForm").hide();
-  $(".circle").removeClass('open');
-
-  if (window.innerWidth < window.innerHeight) {
-    $("#logo").css("margin-bottom", "30%");
-  } else {
-    $("#logo").css("margin-top", "5% ");
-  }
-
-  var k = 1;
-
-  for (var i = 1; i < 7; i++) {
-    var element = "";
-    sleep(200 * i).then(function () {
-      element = "#circle" + k.toString();
-      $(element).addClass('open');
-      k++;
-    });
-  }
-
-  sleep(1800).then(function () {
-    $("#signUpForm").show();
-  });
-});
-
-if (window.innerWidth < window.innerHeight) {
-  //mobile
-  $("#logo").css({
-    "width": "50%",
-    "margin-bottom": "45%",
-    "margin-top": "30%"
-  });
-  $("button:hover, button:active").css({
-    "position": "relative",
-    "top": "1px"
-  });
-  $("#circle1").css({
-    "margin-left": "20%",
-    "margin-top": "70%"
-  });
-  $("#circle2").css({
-    "margin-left": "-15%",
-    "margin-top": "73%"
-  });
-  $("#circle3").css({
-    "margin-left": "65%",
-    "margin-top": "74%"
-  });
-  $("#circle4").css({
-    "margin-left": "25%",
-    "margin-top": "115%"
-  });
-  $("#circle5").css({
-    "margin-left": "-15%",
-    "margin-top": "115%"
-  });
-  $("#circle6").css({
-    "margin-left": "65%",
-    "margin-top": "115%"
-  });
-  $("#loginForm").css({
-    "margin-left": "12%",
-    "margin-top": "100%"
-  });
-  $("#signUpForm").css({
-    "margin-left": "12%",
-    "margin-top": "82%"
-  });
-} else {
-  //desktop
-  $("button:active").css({
-    "position": "relative",
-    "top": "1px"
-  });
-  $("#signup:hover").css({
-    "background-color": "#ffffff  !important",
-    "color": "#539093 !important"
-  });
-  $("#login:hover").css({
-    "background-color": "#64adb1 ",
-    "color": "#ffffff"
-  });
-  $("hr").css("margin-top", "10%");
-  $("#circle1").css({
-    "margin-left": "52%",
-    "margin-top": "17%"
-  });
-  $("#circle2").css({
-    "margin-left": "32%",
-    "margin-top": "18%"
-  });
-  $("#circle3").css({
-    "margin-left": "42%",
-    "margin-top": "16%"
-  });
-  $("#circle4").css({
-    "margin-left": "52%",
-    "margin-top": "30%"
-  });
-  $("#circle5").css({
-    "margin-left": "32%",
-    "margin-top": "30%"
-  });
-  $("#circle6").css({
-    "margin-left": "42%",
-    "margin-top": "30%"
-  });
-  $("#loginForm").css({
-    "margin-left": "40%",
-    "margin-top": "25%"
-  });
-  $("#signUpForm").css({
-    "margin-left": "40%",
-    "margin-top": "23%"
-  });
+  return bundleURL;
 }
 
-var sleep = function sleep(milliseconds) {
-  return new Promise(function (resolve) {
-    return setTimeout(resolve, milliseconds);
-  });
-};
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-$('#signupbutton').click(function () {
-  //server interaction
-  $.post("http://localhost:3000/createNewUser", function (data) {
-    if (data) {
-      window.location = "http://localhost:1234/test.html";
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  });
-});
-$('#loginbutton').click(function () {
-  //server interaction
-  $.post("http://localhost:3000/auth", function (data) {
-    if (data) {
-      window.location = "http://localhost:1234/home.html";
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
-  });
-});
-},{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -320,7 +212,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57026" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51569" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -496,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/index.js"], null)
-//# sourceMappingURL=/src.7ed060e2.js.map
+},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/test.js.map

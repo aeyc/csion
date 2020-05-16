@@ -117,179 +117,86 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../src/index.js":[function(require,module,exports) {
-var delay = function delay(ms) {
-  return new Promise(function (res) {
-    return setTimeout(res, ms);
-  });
-};
-
-var signUpClicked = false;
-$(".openLogin").click(function () {
-  $(".entrance").hide();
-  $("#signUpForm").hide();
-  $(".circle").removeClass('open');
-
-  if (window.innerWidth < window.innerHeight) {
-    $("#logo").css("margin-bottom", "30%");
-  } else {
-    $("#logo").css("margin-top", "5% ");
-  }
-
-  var k = 1;
-
-  for (var i = 1; i < 7; i++) {
-    var element = "";
-    sleep(200 * i).then(function () {
-      element = "#circle" + k.toString();
-      $(element).addClass('open');
-      k++;
-    });
-  }
-
-  sleep(1800).then(function () {
-    $("#loginForm").show();
-  });
-});
-$(".openSignUp").click(function () {
-  $(".entrance").hide();
-  $("#loginForm").hide();
-  $(".circle").removeClass('open');
-
-  if (window.innerWidth < window.innerHeight) {
-    $("#logo").css("margin-bottom", "30%");
-  } else {
-    $("#logo").css("margin-top", "5% ");
-  }
-
-  var k = 1;
-
-  for (var i = 1; i < 7; i++) {
-    var element = "";
-    sleep(200 * i).then(function () {
-      element = "#circle" + k.toString();
-      $(element).addClass('open');
-      k++;
-    });
-  }
-
-  sleep(1800).then(function () {
-    $("#signUpForm").show();
-  });
-});
+})({"../src/home.js":[function(require,module,exports) {
+var _this = this;
 
 if (window.innerWidth < window.innerHeight) {
-  //mobile
-  $("#logo").css({
-    "width": "50%",
-    "margin-bottom": "45%",
-    "margin-top": "30%"
+  $('.categoryButton').css({
+    "width": "70%"
   });
-  $("button:hover, button:active").css({
-    "position": "relative",
-    "top": "1px"
+  $('.subcategoryButton').css({
+    "width": "70%"
   });
-  $("#circle1").css({
-    "margin-left": "20%",
-    "margin-top": "70%"
+  $('.problemButton').css({
+    "width": "90%"
   });
-  $("#circle2").css({
-    "margin-left": "-15%",
-    "margin-top": "73%"
+  $('.navbar a').css({
+    "padding-top": "5%",
+    "padding-bottom": "5%"
   });
-  $("#circle3").css({
-    "margin-left": "65%",
-    "margin-top": "74%"
-  });
-  $("#circle4").css({
-    "margin-left": "25%",
-    "margin-top": "115%"
-  });
-  $("#circle5").css({
-    "margin-left": "-15%",
-    "margin-top": "115%"
-  });
-  $("#circle6").css({
-    "margin-left": "65%",
-    "margin-top": "115%"
-  });
-  $("#loginForm").css({
-    "margin-left": "12%",
-    "margin-top": "100%"
-  });
-  $("#signUpForm").css({
-    "margin-left": "12%",
-    "margin-top": "82%"
-  });
-} else {
-  //desktop
-  $("button:active").css({
-    "position": "relative",
-    "top": "1px"
-  });
-  $("#signup:hover").css({
-    "background-color": "#ffffff  !important",
-    "color": "#539093 !important"
-  });
-  $("#login:hover").css({
-    "background-color": "#64adb1 ",
-    "color": "#ffffff"
-  });
-  $("hr").css("margin-top", "10%");
-  $("#circle1").css({
-    "margin-left": "52%",
-    "margin-top": "17%"
-  });
-  $("#circle2").css({
-    "margin-left": "32%",
-    "margin-top": "18%"
-  });
-  $("#circle3").css({
-    "margin-left": "42%",
-    "margin-top": "16%"
-  });
-  $("#circle4").css({
-    "margin-left": "52%",
-    "margin-top": "30%"
-  });
-  $("#circle5").css({
-    "margin-left": "32%",
-    "margin-top": "30%"
-  });
-  $("#circle6").css({
-    "margin-left": "42%",
-    "margin-top": "30%"
-  });
-  $("#loginForm").css({
-    "margin-left": "40%",
-    "margin-top": "25%"
-  });
-  $("#signUpForm").css({
-    "margin-left": "40%",
-    "margin-top": "23%"
+  $('.backButton').css({
+    "width": "30%"
   });
 }
 
-var sleep = function sleep(milliseconds) {
-  return new Promise(function (resolve) {
-    return setTimeout(resolve, milliseconds);
-  });
-};
-
-$('#signupbutton').click(function () {
-  //server interaction
-  $.post("http://localhost:3000/createNewUser", function (data) {
-    if (data) {
-      window.location = "http://localhost:1234/test.html";
-    }
-  });
+$('#career').click(function () {
+  $('#categories').hide();
+  $('#careerSub').show();
+  $('.backButton').show();
 });
-$('#loginbutton').click(function () {
-  //server interaction
-  $.post("http://localhost:3000/auth", function (data) {
-    if (data) {
-      window.location = "http://localhost:1234/home.html";
-    }
+$('#relation').click(function () {
+  $('#categories').hide();
+  $('#relationshipSub').show();
+  $('.backButton').show();
+});
+$('#education').click(function () {
+  $('#categories').hide();
+  $('#educationSub').show();
+  $('.backButton').show();
+});
+$('#back1').click(function () {
+  $('#back1').hide();
+  $('.subCategories').hide();
+  $('#categories').show();
+});
+$('.subcategoryButton').click(function () {
+  $('#back1').hide();
+  $('.subCategories').hide();
+  get("http://localhost:3000/getProblems/" + $(_this).attr('id'), function (data) {
+    //data should be array of strings: problems
+    console.log(data);
+    data.forEach(function (element) {
+      $('#problems').append("<button ontouchstart=\"\" class=\"problemButton\">" + element + "</button> <br>");
+    });
+  });
+  $('#problems').show();
+});
+$('.problemButton').click(function () {
+  $('#problems').hide();
+  $('#categoryHeader').hide();
+  $('#questionHeader').show();
+  get("http://localhost:3000/getProblems/" + $(_this).text(), function (data) {
+    //data should be array of strings: questions
+    console.log(data);
+    data.forEach(element, function (index) {
+      $('#questions').append("<div class= \"question\">\n            <p>" + element + "</p>\n            <input type=\"radio\" id=\"positive" + index + "\" name=\"" + index + "\" value=\"yes\">\n            <label for=\"positive" + index + "\">Yes</label>\n            <input type=\"radio\" id=\"negative" + index + "\" name=\"" + index + "\" value=\"no\" >\n            <label for=\"negative" + index + "\">No</label>\n        </div><br> ");
+    });
+    $('#questions').append("<input type=\"submit\" value=\"Submit\" id = \"submitQuestions\">");
+    $('#questions').submit(function () {
+      //we should keep array of yes/no answers
+      var answers = [];
+      data.forEach(element, function (index) {
+        answers.push($('input[name=' + index + ']:checked').val());
+      }); //post answers to backend and get decision, show decision to user
+
+      post("http://localhost:3000/questionAnswers", answers, function (data) {
+        console.log("Successful!");
+        $('#questions').hide();
+        $('#questionHeader').hide();
+        $('#decision').show();
+        $('#decision').append("<p>" + data + "</p>");
+      });
+    });
   });
 });
 },{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -320,7 +227,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57026" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56773" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -496,5 +403,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/index.js"], null)
-//# sourceMappingURL=/src.7ed060e2.js.map
+},{}]},{},["../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","../src/home.js"], null)
+//# sourceMappingURL=/home.c3934641.js.map
