@@ -104,13 +104,13 @@ body {
 input:focus {
     outline:none;
 }
-#uname {
+.uname {
     background-image: url("/user.53a65b63.png");
 }
-#password {
+.password {
     background-image: url("/lock.d353c74b.png");
 }
-#email {
+.email {
     background-image: url("/mail.71e7cf78.png");
 }
 
@@ -241,5 +241,9 @@ a {
  #questionHeader {
      display: none;
  }
+  a:hover{
+      cursor: pointer;
+  }
+
 
 /*# sourceMappingURL=/src.44434296.css.map */

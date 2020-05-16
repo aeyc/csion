@@ -277,13 +277,20 @@ var sleep = function sleep(milliseconds) {
 };
 
 $('#signupbutton').click(function () {
-  //server interaction  
-  post("http://localhost:3000/createNewUser", function (data) {
-    console.log(data);
-  }); //if OK route to test
-
-  $('#testbutton').show();
-  $('#signupbutton').hide();
+  //server interaction
+  $.post("http://localhost:3000/createNewUser", function (data) {
+    if (data) {
+      window.location = "http://localhost:1234/test.html";
+    }
+  });
+});
+$('#loginbutton').click(function () {
+  //server interaction
+  $.post("http://localhost:3000/auth", function (data) {
+    if (data) {
+      window.location = "http://localhost:1234/home.html";
+    }
+  });
 });
 },{}],"../../../../../../../Users/z00435eb/AppData/Local/Yarn/Data/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -313,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56773" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57026" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
