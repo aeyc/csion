@@ -104,13 +104,13 @@ body {
 input:focus {
     outline:none;
 }
-#uname {
+.uname {
     background-image: url("../public/assets/user.png");
 }
-#password {
+.password {
     background-image: url("../public/assets/lock.png");
 }
-#email {
+.email {
     background-image: url("../public/assets/mail.png");
 }
 
@@ -241,3 +241,6 @@ a {
  #questionHeader {
      display: none;
  }
+  a:hover{
+      cursor: pointer;
+  }
