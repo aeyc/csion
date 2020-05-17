@@ -23,15 +23,18 @@ $('#logout').click(()=>{
 });
 
 $('#switchNotif').change(()=>{
+    const msg = {'pref': $('#switchNotif').is('checked')};
+
     //send new preference to server
-    $.get("http://localhost:3000/notificationPref" + $('#switchNotif').val(), (data) => {
+    $.get("http://localhost:3000/notificationPref" + msg, (data) => {
         console.log('Success');
     });
 });
 
 $('#suspend').submit(()=>{
+    const message= {'password': $('#suspend :input').get(0).value};
     //send suspend request to server with password to be checked
-    $.post("http://localhost:3000/checkAndSuspend", $('#suspend :input').get(0).value, (data) => {
+    $.post("http://localhost:3000/checkAndSuspend", message, (data) => {
         if (data) {
             console.log('Success');
             window.location = "http://localhost:1234/index.html";
@@ -59,4 +62,16 @@ $('#changePassword').submit(()=>{
     .not(':button, :submit, :reset, :hidden')
     .val('');
     return false;
+});
+
+$( document ).ready( ()=>{
+    //get notification preference
+    $.get("http://localhost:3000/getNotifPref", (data) => {
+        if(data !== $('#switchNotif').is(":checked")){
+            if( $('#switchNotif').is(":checked"))
+                $('#switchNotif').prop('checked', false);
+            else 
+                $('#switchNotif').prop('checked', true);
+        }
+    });
 });

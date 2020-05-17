@@ -4,6 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel public/home.html"
+    "start": "parcel public/*.html"
   }
 }
