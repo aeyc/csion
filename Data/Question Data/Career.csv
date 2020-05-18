@@ -1,61 +1,44 @@
-category;subcategory;question;encourage;discourage;desireLevel
-career;change;Does your income brings you joy?;Stable,Stability,Positive;-;0
-career;change;Do you prefer part-time jobs?;Flexible;-;0
-career;change;Do you think that you give more labour than what you get?;Pessimistic,Straightforward,Negative;Positive,Overwork,Flexible,Hard working;0
-career;change;Does your interest about your job still remain?;Positive;Inconsistent,Conflict;0
-career;change;Are you feeling stressed in your current job?;Determined;-;0
-career;change;Do you consider your job as “innovative”?;Positive,;-;0
-career;change;Do you have other career plans for yourself?;Seeker,Solver;Unrealistic;0
-career;change;Do you think that your social interactions are stonewalled because of your intense work pressure?;Extroverted,Extrovert,Communicative,Teamwork,Teamplayer,Social;Individual,Autonomous,;0
-career;change;Do you just work for your happiness and motivation? ;-;-;0
-career;change;Do you want to work in same sector?;Determined,;Seeker,Inconsistent;0
-career;change; Is salary the most important to you at this point in your career?;-;-;0
-career;change;Would you trade a high salary for a good corporate culture or engaging responsibilities?;Responsible,Hardworking;-;0
-career;change;Do people at the office seem happy or do they appear stressed or overworked?;-;-;0
-career;change;Have you ever be on call over holidays or on the weekend?;Hard Working,Responsible;-;0
-career;change;Will switching jobs affect your professional relationships?;Conflict,;-;0
-career;change;Is your current job’s location problematic?;-;-;0
-career;change;Will you be paid enough?;-;-;0
-career;change;Will you have more flexible schedule?;Flexible;-;0
-career;change;Do you feel that you  can be more successful in another firm?;Determined,Confident,Seeker,Inconsistent,Exploring;Stable,Stability;0
-career;change;Do you feel that you  can be more successful in another sector?;Determined,Seeker,Inconsistent,Exploring;Stable,Stability;0
-career;change;Would you define your working environment as competition/race? ;Competitive,;Friendly, Teamwork,Uncompetitive;0
-career;office;Do you prefer working alone?;Independent,Autonomous,Individual,Brave;Friendly, Teamwork,Talkative;0
-career;office;Are you a hardworking employer?;Hard Working,Competitive,Confident;Relax,Passive,Uncompetetive;0
-career;office;Do you feel overworked and stressed?;Competitive,;Relax,Positive;0
-career;office;Do you have problems with your boss?;Conflict,;Outgoing;0
-career;office;Do you have problems with your teammates?;Individual,;Teamwork,Outgoing;0
-career;office;Do you feel misunderstood in office?;Conflict,;-;0
-career;office;Do you feel that mobbing is the biggest problem in your firm?;Conflict,;-;0
-career;office;Does your office problems affect your motivation and success?;-;-;0
-career;office;Do you feel that you are engaged with your office culture?;Outgoing,Adaptive;Conflict,;0
-career;office;Is the mobbing that you are faced with, related with hierarchy?;Conflict,Competetive;;0
-career;office;Is the mobbing that you are faced with, related with competition between employees?;Conflict,;Friendly;0
-career;office;Does your company have a dress code?;-;-;0
-career;office;Does dress code in your company affects you negatively?;Conflict,;-;0
-career;office;Would you work on a project even you do not have any interest about related subject?;Hard Working,;-;0
-career;office;Are you getting sidetracked while working?;-;Positive;0
-career;quit;Does your income brings you joy?;Positive,Stable,Stability,;-;0
-career;quit;Do you think that you give more labour than what you get?;Hard Working,;-;0
-career;quit;Are you feeling stressed in your current job?;-;Relax;0
-career;quit;Do you think that your social interactions are stonewalled because of your intense work pressure?;Extroverted,Extrovert,Communicative,Teamwork,Teamplayer,Energetic,Friendly,Social;Individual,;0
-career;quit;Can you defend my choice to leave, even if others disagree with it?;Individual,Autonomous,Director;-;0
-career;quit;Do you have a  plan for day one after leaving?;Determined,;Adventurous,Unrealistic,Unplanned,Exploring,Unlogical;0
-career;quit;Does your office life became monotone?;Adventurous,Exploring,Energectic;Stable,Stability;0
-career;quit;Do you have a tendency to switch your current sector?;Inconsistent;Conflict,;0
-career;quit;Is your current work environment abusive or unbearable?;HelpSeeker,Emotional,;Outgoing,Positive;0
-career;quit;Have you taken every action possible to make your current job workable?;Solver,Communicative,Interactive,Giver,Caring;-;0
-career;quit;Do you have a thoughtful, realistic plan for attaining your next job?;Determined,;Adventurous,Unrealistic,Relax,Unplanned,Exploring;0
-career;quit;Do you have enough saved to cover nine to 12 months of expenses?;Confident,;Adventurous,Unrealistic,Relax,Unplanned,Exploring;0
-career;quit;Do you have the support of my family and friends?;Confident,;Conflict,;0
-career;quit;Do you timed this appropriately?;Confident,;Unplanned;0
-career;quit;Were you fired?;-;-;0
-career;general;Are you working now?;-;-;0
-career;general;Have you ever worked?;-;-;0
-career;general;Did you worked more than 7 years?;-;-;0
-career;general;Did you worked more than 10 years?;-;-;0
-career;general;Do you love your current job?;-;-;0
-career;general;Do you love your current team?;-;-;0
-career;general;Have you ever think about quitting your current job?;-;-;0
-career;general;Are you motivated?;-;-;0
-career;general;Have you ever thought about switching sector?;-;-;0
+category;subcategory;question;score;questionId
+career;change;Do you think that you give more labour than what you get?;7;1
+career;change;Is your interest about your job ended?;8;2
+career;change;Are you feeling stressed in your current job?;8;3
+career;change;You don’t consider your job as “innovative”.;4;4
+career;change;Do you have other career plans for yourself?;2;5
+career;change;Do you think that your social interactions are stonewalled because of your intense work pressure?;5;6
+career;change;Do you just work for your happiness and motivation? ;6;7
+career;change;Do you want to switch your current sector?;8;8
+career;change;Do people at the office appear stressed or overworked?;5;9
+career;change;Have you ever be on call over holidays or on the weekend?;5;10
+career;change;Will switching jobs affect your professional relationships?;7;11
+career;change;Will you be paid enough?;7;12
+career;change;Will you have more flexible schedule?;7;13
+career;change;Do you feel that you  can be more successful in another firm?;3;14
+career;change;Do you feel that you  can be more successful in another sector?;7;15
+career;change;Would you define your working environment as competition/race? ;2;16
+career;office;Do you prefer working alone?;9;17
+career;office;Are you a hardworking employer?;9;18
+career;office;Do you feel stressed in your office?;9;19
+career;office;Do you have problems with your boss?;3;20
+career;office;Do you have problems with your office mates?;8;21
+career;office;Do you feel misunderstood in office?;7;22
+career;office;Do you feel that mobbing is the biggest problem in your office?;9;23
+career;office;Does your office problems affect your motivation and success?;6;24
+career;office;You don’t feel that you are engaged with your office culture.;4;25
+career;office;Is the mobbing that you are faced with, related with hierarchy?;3;26
+career;office;Is the mobbing that you are faced with, related with competition between employees?;7;27
+career;office;Does dress code in your company affects you negatively?;1;28
+career;office;Would you work on a project even you do not have any interest about related subject?;2;29
+career;office;Are you getting sidetracked while working?;7;30
+career;quit;Do you think that you give more labour than what you get?;6;31
+career;quit;Are you feeling stressed in your current job?;9;32
+career;quit;Do you think that your social interactions are stonewalled because of your intense work pressure?;5;33
+career;quit;Can you defend your choice to leave, even if others disagree with it?;8;34
+career;quit;Do you have a  plan for day one after leaving?;9;35
+career;quit;Does your office life became monotone?;2;36
+career;quit;Do you have a tendency to switch your current sector?;5;37
+career;quit;Is your current work environment abusive or unbearable?;9;38
+career;quit;Have you taken every action possible to make your current job workable?;5;39
+career;quit;Do you have a thoughtful, realistic plan for attaining your next job?;7;40
+career;quit;Do you have enough saved to cover nine to 12 months of expenses?;9;41
+career;quit;Do you have the support of my family and friends?;6;42
+career;quit;Do you timed this appropriately?;9;43
