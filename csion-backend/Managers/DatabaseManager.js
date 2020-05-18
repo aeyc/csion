@@ -1,11 +1,28 @@
+const EducationQuestion = require("../model/EducationQuestion");
+const EducationProblem = require("../model/EducationProblem");
 const Personality = require("../model/Personality");
-const NormalQuestion = require("../model/NormalQuestions");
+const User = require("../model/User");
 
+
+
+//addUser("selim", "özcan","selo","selo123","selo@selo.com","23");
+function addUser(name, surname, username, password, email, age) {
+    let newUser = new User({
+        name: name,
+        surname: surname,
+        username: username,
+        password: password,
+        email: email,
+        age: age
+    });
+
+    newUser.save((err, user) => {
+        if (err) throw err;
+        console.log(user);
+    })
+}
 
 //getPersonalityType('Di');
-
-
-
 function getPersonalityType(type) {
     Personality.find({type: type}, (err, personality) => {
         if (err) throw err;
@@ -13,63 +30,28 @@ function getPersonalityType(type) {
     });
 }
 
-
-
-
-//createNormalQuestion(null,null,null,null,null,null, null, null, false);
-
-function createNormalQuestion(question, requiredTags,providedPositiveTags,providedNegativeTags, keywords, score, subject, subSubject, isInitial){
-    let Normal =  new NormalQuestion({
-        question: question,
-        requiredTags: requiredTags,
-        providedPositiveTags: providedPositiveTags,
-        providedNegativeTags: providedNegativeTags,
-        keywords: keywords,
-        score: score,
-        subject: subject,
-        subSubject: subSubject,
-        isInitial: isInitial,
-    });
-
-    Normal.save((err, result) => {
+//getUser("selo","selo123");
+function getUser(username, password) {
+    User.find( {username: username , password: password},(err, user) => {
         if (err) throw err;
-        console.log(result);
+        console.log(user);
     });
 }
 
-
-function updatePersonality(type,tends, strengths,weaknesses,growths,motivations,stresses,positiveCareer,negativeCareer,jobs,positiveFriendship,negativeFriendship,positiveRelationship,negativeRelationship,keywords) {
-
-    Personality.update({ type: type  }, {tends: tends, strengths: strengths,
-    weaknesses: weaknesses, growths: growths, motivations: motivations,
-    Stresses: stresses, positiveCareer: positiveCareer, negativeCareer: negativeCareer,
-    jobs: jobs, positiveFriendship: positiveFriendship,  negativeFriendship: negativeFriendship,
-    positiveRelationship: positiveRelationship, negativeRelationship: negativeRelationship, keywords: keywords})
-        .exec(function(err, personality) {
-            console.log(personality);
-        });
-
+/*
+let user = {};
+user._id = "5ec1ab7e0018c41acc9e4023";
+setPersonalityType(user, "Di")*/
+function setPersonalityType(user, type) {
+    User.findOneAndUpdate({_id: user._id}, {personalityType: type}, function(err, type) {
+        if (err) throw err;
+        console.log(type);
+    })
 }
 
-let type = "";
-let tends = [];
-let strengths = [];
-let weaknesses = [];
-let growths = [];
-let motivations = [];
-let stresses = [];
-let positiveCareer = [];
-let negativeCareer = [];
-let jobs = [];
-let positiveFriendship = [];
-let negativeFriendship = [];
-let positiveRelationship = [];
-let negativeRelationship = [];
-let keywords = [];
 
 
-updatePersonality(type,tends,strengths,weaknesses,growths,motivations,stresses,positiveCareer,negativeCareer,jobs,positiveFriendship,
-    negativeFriendship,positiveRelationship,negativeRelationship,keywords);
+
 
 
 
