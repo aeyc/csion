@@ -8,15 +8,10 @@
 body {
     background-color: #539093;
     text-align: center !important;
+    margin-bottom: 100px;
+    padding: 20px;
 }
 
-#entranceLine {
-    margin-top: 27%; 
-    background-color: #70ACAF; 
-    border: none; 
-    height: 1px;
-    width: 90%;
-}
 
 button {
 	background-color:#ffffff;
@@ -29,6 +24,15 @@ button {
     font-size: 20px;
     outline: none;
     font-family: 'Montserrat';
+}
+
+/*ENTRANCE AT INDEX.HTML*/
+#entranceLine {
+    margin-top: 27%; 
+    background-color: #70ACAF; 
+    border: none; 
+    height: 1px;
+    width: 90%;
 }
 
 #rights {
@@ -46,10 +50,6 @@ button {
 button:active{
 	position:relative;
 	top:1px;
-}
-
-body {
-    padding: 20px;
 }
 
 .fade{
@@ -132,6 +132,11 @@ a {
     color: #7D9BE8;
     font-size: 10px;
 }
+
+a:hover{
+    cursor: pointer;
+}
+/* NAVBAR */
 .navbar {
     background-color: white;
     overflow: hidden;
@@ -139,7 +144,6 @@ a {
     bottom: 0;
     width: 100%;
     left: 0;
-
     border-top: #8b8b8b;
     border-style: outset;
     border-width: 1px;  
@@ -163,9 +167,11 @@ a {
   }
   
   .navbar a.active {
-    background-color: rgb(146, 196, 187);
+    background-color: #84c1c4;
     color: rgb(255, 255, 255);
   }
+
+  /*HOME*/
 
  .subcategoryButton {
     width: 15%;
@@ -241,6 +247,200 @@ a {
  #questionHeader {
      display: none;
  }
-  a:hover{
-      cursor: pointer;
+
+  /* SETTINGS */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
   }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+#notifCheck div {
+  display: inline-block;
+	width: 200px;
+}
+
+.settingsDiv {
+    background-color:#64adb1;
+    width: 30%;
+    height: auto;
+	  border-radius:35px;
+    border: none;
+    color:#ffffff;
+    display: inline-block;
+    font-family: 'Montserrat';
+    font-size: 24px;
+}
+
+.settingForm label {
+    font-size: 16px;
+}
+.settingForm input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    color: grey;
+    background-color: rgb(245, 243, 243);
+    padding: 12px 50px 12px ;
+    background-position: 10px;
+    background-repeat: no-repeat;
+}
+
+.passSubmit {
+    margin-bottom: 15px;
+}
+
+#about {
+  padding:10px;
+  display:none;
+}
+
+#about a {
+  font-size: 16px;
+  color: white;
+  font-family: 'Montserrat';
+
+}
+
+/* PROFILE */
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: age; }
+.item5 { grid-area: footer; }
+.item6 { grid-area: hicon; }
+.item7 { grid-area: micon; }
+.item8 { grid-area: aicon; }
+.item9 { grid-area: ficon; }
+.item0 { 
+  grid-area: about; 
+  font-size: 25px !important; 
+  text-align: center !important;
+}
+.item10 {grid-area: hr;
+margin: 0;}
+
+.grid-container {
+  background-color:#64adb1;
+  height: auto;
+	border-radius:35px;
+  border: none;
+  color:#ffffff;
+  display: grid;
+  font-family: 'Montserrat';
+  grid-template-areas:
+    'about about about about about menu'
+    'hr hr hr hr hr hr'
+    'hicon header header header header header'
+    'micon main main main main main'
+    'ficon footer footer footer footer footer'
+    'aicon age age age age age';
+  grid-gap: 0px;
+  padding: 20px;
+}
+
+.grid-container > div {
+  background-color: #64adb1;
+  text-align: left;
+  font-size: 22px;
+  padding: 10px 0px;
+}
+
+.profileCard {
+  display: inline-block;
+  width: 30%;
+}
+
+#edit:hover{
+  cursor: pointer;
+  color: #539093;
+}
+
+#edit {
+  font-size: 20px;
+  float: right;
+  float: top;
+}
+
+#editForm {
+  display: none;
+  background-color:#64adb1;
+  padding-top:20px;
+  height: auto;
+	border-radius:35px;
+  border: none;
+}
+
+#editForm input {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  color: grey;
+  background-color: rgb(255, 255, 255);
+  padding: 12px 50px 12px ;
+  background-position: 10px;
+  background-repeat: no-repeat;
+  width: 200px;
+}
+
+
+#editbutton {
+  background-color: white !important;
+  color: #64adb1 !important;
+  font-size: 16px;
+  padding: 10px 15px !important;
+}
+.ageInput {
+  background-image: url("../public/assets/age.png");
+}
+.unameInput {
+  background-image: url("../public/assets/sign.png");
+}
+
+.profileCard p {
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: white;
+}
+
+.pcard {
+  padding: 20px 0px;
+}
+
+.decision p {
+  font-size: 16px;
+}
+
+.feedback {
+  padding: 5px 10px !important;
+  font-size: 16px;
+}
+
+.settingsDiv hr {
+  margin: 10px 18px;
+}
+
+.detail {
+  width: 300px;
+  height:100px;
+}
+
+.feedbackSubmit {
+  padding: 5px 10px !important;
+  font-size: 16px;
+}
+
+.feedbackForm label {
+  font-size: 16px;
+}
+
+.feedbackForm {
+  display:none;
+}

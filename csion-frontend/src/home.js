@@ -4,6 +4,7 @@ if ((window.innerWidth < window.innerHeight )) {
     $('.problemButton').css({"width": "90%"});
     $('.navbar a').css({ "padding-top": "5%", "padding-bottom": "5%"});
     $('.backButton').css({"width": "30%"});
+    $('.slider').css({"width": "90%"});
 }
 
 $('#career').click(() => {
@@ -34,7 +35,8 @@ $('#back1').click(() => {
 $('.subcategoryButton').click(() => {
     $('#back1').hide();
     $('.subCategories').hide();
-    get("http://localhost:3000/getProblems/"+ $(this).attr('id'), (data) => {
+    const message = {'id': $(this).attr('id')};
+    $.get("http://localhost:3000/getProblems/"+ message, (data) => {
         
         //data should be array of strings: problems
         console.log(data);
@@ -49,7 +51,8 @@ $('.problemButton').click(() => {
     $('#problems').hide();
     $('#categoryHeader').hide();
     $('#questionHeader').show();
-    get("http://localhost:3000/getProblems/"+ $(this).text(), (data) => {
+    const msg = {'selectedProblem': $(this).text()};
+    $.post("http://localhost:3000/getProblems/", msg, (data) => {
         //data should be array of strings: questions
         console.log(data);
         data.forEach(element,index => {
@@ -61,6 +64,8 @@ $('.problemButton').click(() => {
             <label for="negative`+ index +`">No</label>
         </div><br> `);
         });
+        $('#questions').append(`<label style="font-family: 'Montserrat'; color:white">Please use the scale below to tell us how much do you want to perform this action.</label><br><br>
+        <input type="range" min="-10" max="10" value="0" class="slider" id="myRange"><br>`);
         $('#questions').append(`<input type="submit" value="Submit" id = "submitQuestions">`);
         $('#questions').submit(()=>{
             //we should keep array of yes/no answers
@@ -68,8 +73,9 @@ $('.problemButton').click(() => {
             data.forEach(element, index => {
                 answers.push($('input[name='+ index +']:checked').val());
             });
+            answers.push($('#myRange').val());
             //post answers to backend and get decision, show decision to user
-            post("http://localhost:3000/questionAnswers", answers, (data) => {
+            $.post("http://localhost:3000/questionAnswers", JSON.stringify(answers), (data) => {
                 console.log("Successful!");
                 $('#questions').hide();
                 $('#questionHeader').hide();

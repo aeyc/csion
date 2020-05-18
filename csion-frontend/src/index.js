@@ -83,19 +83,32 @@ const sleep = milliseconds => {
 };
 
 $('#signupbutton').click(() => {
+    var message = {
+        'username': $('#signupUsername').val(),
+        'email': $('#signupEmail').val(),
+        'password': $('#signupPassword').val()
+    };
     //server interaction
-    $.post("http://localhost:3000/createNewUser", (data) => {
+    $.post("http://localhost:3000/createNewUser",message, (data) => {
         if (data) {
             window.location = "http://localhost:1234/test.html";
+        } else {
+            //TODO: alert to user
         }
     });
 });
 
 $('#loginbutton').click(() => {
+    var message = {
+        'username': $('#loginUsername').val(),
+        'password': $('#loginPassword').val()
+    };
     //server interaction
-    $.post("http://localhost:3000/auth", (data) => {
+    $.post("http://localhost:3000/auth",message, (data) => {
         if (data) {
             window.location = "http://localhost:1234/home.html";
+        } else {
+            //TODO: alert to user
         }
     });
 });
