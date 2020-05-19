@@ -444,3 +444,21 @@ margin: 0;}
 .feedbackForm {
   display:none;
 }
+
+/* PAGES*/
+
+#testPage {
+  display:none;
+}
+
+#homePage {
+  display:none;
+}
+
+#profilePage {
+  display:none;
+}
+
+#settingsPage {
+  display:none;
+}

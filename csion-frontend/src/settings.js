@@ -12,15 +12,6 @@ $('#backAbout').click(()=>{
     $('#about').css('display', 'none');
 });
 
-$('#logout').click(()=>{
-    //server interaction to end session 
-    $.get("http://localhost:3000/logout", (data) => {
-        //if success go to entrance page
-        if (data) {
-            window.location = "http://localhost:1234/index.html";
-        }
-    });
-});
 
 $('#switchNotif').change(()=>{
     const msg = {'pref': $('#switchNotif').is('checked')};
@@ -62,16 +53,4 @@ $('#changePassword').submit(()=>{
     .not(':button, :submit, :reset, :hidden')
     .val('');
     return false;
-});
-
-$( document ).ready( ()=>{
-    //get notification preference
-    $.get("http://localhost:3000/getNotifPref", (data) => {
-        if(data !== $('#switchNotif').is(":checked")){
-            if( $('#switchNotif').is(":checked"))
-                $('#switchNotif').prop('checked', false);
-            else 
-                $('#switchNotif').prop('checked', true);
-        }
-    });
 });

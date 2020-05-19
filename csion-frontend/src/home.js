@@ -16,7 +16,7 @@ $('#career').click(() => {
 $('#relation').click(() => {
     $('#categories').hide();
     $('#relationshipSub').show();
-    $('.backButton').show();
+    $('#back1').show();
 });
 
 $('#education').click(() => {
@@ -37,12 +37,13 @@ $('.subcategoryButton').click(() => {
     $('.subCategories').hide();
     const message = {'id': $(this).attr('id')};
     $.get("http://localhost:3000/getProblems/"+ message, (data) => {
-        
+        $('#problems').append(`<div id='removeProblems'>`);
         //data should be array of strings: problems
         console.log(data);
         data.forEach(element => {
             $('#problems').append(`<button ontouchstart="" class="problemButton">`+ element +`</button> <br>`);
         });
+        $('#problems').append('</div>');
     });
     $('#problems').show();
 });
@@ -55,6 +56,7 @@ $('.problemButton').click(() => {
     $.post("http://localhost:3000/getProblems/", msg, (data) => {
         //data should be array of strings: questions
         console.log(data);
+        $('#questions').append(`<div id='removeQuestions>'`);
         data.forEach(element,index => {
             $('#questions').append(`<div class= "question">
             <p>`+ element +`</p>
@@ -66,8 +68,8 @@ $('.problemButton').click(() => {
         });
         $('#questions').append(`<label style="font-family: 'Montserrat'; color:white">Please use the scale below to tell us how much do you want to perform this action.</label><br><br>
         <input type="range" min="-10" max="10" value="0" class="slider" id="myRange"><br>`);
-        $('#questions').append(`<input type="submit" value="Submit" id = "submitQuestions">`);
-        $('#questions').submit(()=>{
+        $('#questions').append(`<input type="submit" value="Submit" id = "submitQuestions"></div>`);
+        $('#submitQuestions').click(()=>{
             //we should keep array of yes/no answers
             var answers = [];
             data.forEach(element, index => {
@@ -80,7 +82,15 @@ $('.problemButton').click(() => {
                 $('#questions').hide();
                 $('#questionHeader').hide();
                 $('#decision').show();
-                $('#decision').append(`<p>`+ data+`</p>`);
+                $('#decision').append(`<div id='removeDecision'><p>`+ data +`</p><br><button ontouchstart="" class="backButton" id="back2"><i class="fas fa-arrow-left"></i> Back To Home</button></div>`);
+                $('#back2').click(()=>{
+                    $('#removeProblems').remove();
+                    $('#removeQuestions').remove();
+                    $('#removeDecision').remove();
+                    $('#decision').hide();
+                    $('#categories').show();
+                    $('#categoryheader').show();
+                });
             });
         })   
     });

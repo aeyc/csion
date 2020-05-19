@@ -18,6 +18,8 @@
 </head>
 
 <body>
+    <div id="startPage">
+        <div id="div1">
     <img src="./assets/logo.PNG" id="logo">
     <br>
     <div class="entrance">
@@ -50,6 +52,288 @@
         <hr>
         <p id="text">Already have an account?<a id="loginLink" class="openLogin"> Login from here!</a></p>
     </div>
+</div>
+    </div>
+    <div id="testPage">
+        <link rel="stylesheet" type="text/css" href="https://cdn2.hubspot.net/hubfs/1716276/embeddable_assessments/disc/disc_assessment_v1.1.0.css" />
+            <div id="disc_assessment_root" data-api-token="ad0203ea7eace0838cbb67284a556057"></div>
+            <script src="https://cdn2.hubspot.net/hubfs/1716276/embeddable_assessments/disc/disc_assessment_v1.1.0.js"></script>
+        <script>
+        window.crystalKnowsDISCResponse = function (response) {
+    
+            //$("#disc_assessment_root").hide();
+          $("#disc_assessment_root").after(`<form id = "responseForm">
+          <img id= "personalityChart" style= "width: 300px; height:auto" src=` + response.images.disc_map + `>`);
+            $("#personalityChart").after( `</ul><h4 id="pTitle">Overall Profile: </h4><ul class="mylist">`);
+            response.content.profile.quality.forEach(element => {
+                $("#pTitle").after(`<li>`+ element  +`</li>`);
+            });
+            $("#personalityChart").after( `</ul><h4 id="mTitle">This Personality's Motivations: </h4><ul class="mylist">`);
+            response.content.motivation.phrase.forEach(element => {
+                $("#mTitle").after(`<li>`+ element  +`</li> `);
+            });
+            $("#personalityChart").after( `</ul><h4 id="dTitle">This Personality's Drainer Qualities: </h4><ul class="mylist">`);
+            response.content.drainer.quality.forEach(element => {
+                $("#dTitle").after(`<li>`+ element  +`</li> `);
+            });
+            $("#personalityChart").after( `<h4 id="bTitle">This Personality's Behavior Phrases: </h4><ul class="mylist">`);
+            response.content.behavior.phrase.forEach(element => {
+                $("#bTitle").after(`<li>`+ element  +`</li> `);
+            });
+            $("#responseForm").append('</ul></form>');
+            $("#responseForm").after(`<button id="cont" style = "background-color:#ffffff; color:#64adb1; border-radius: 8px; padding: 10px 25px; display: inline-block; border: none; outline: none; font-family: 'Montserrat';">Continue</button>`);
+            $.post("http://localhost:3000/userInfo", response, (data) => {
+                if(data){
+                    console.log('Success');
+                } else {
+                    console.log('Failed');
+                }
+            });
+        }
+      </script>
+    </div>
+    <div id="homePage"> 
+        <style>    
+        /* SLIDER STYLE FOR HOME */
+        .slider {
+        -webkit-appearance: none;
+        width: 25%;
+        height: 15px;
+        border-radius: 5px;  
+        background: #ffffff;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%; 
+        background: #64adb1;
+        cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #64adb1;
+        cursor: pointer;
+        }
+        </style>
+
+        <h2 id="categoryHeader" style= "font-family: 'Montserrat'; color:white">Let me give a decision for you about...</h2>
+        <h3 id="questionHeader" style= "font-family: 'Montserrat'; color:white">Please choose the most related answer.</h3>
+
+        <br>
+
+        <div id="categories">
+            <button ontouchstart="" id ="career" class="categoryButton">Career</button>
+            <br>
+            <button ontouchstart="" id="relation" class="categoryButton">Relationship</button>
+            <br>
+            <button ontouchstart="" id="education" class="categoryButton">Education</button>
+        </div>
+
+        <div id="careerSub" class="subCategories">
+            <h2 style= "font-family: 'Roboto'; color:white">Career</h2>
+            <button ontouchstart="" id ="quit" class="subcategoryButton">Quitting</button>
+            <br>
+            <button ontouchstart="" id="office" class="subcategoryButton">Office</button>
+            <br>
+            <button ontouchstart="" id="change" class="subcategoryButton">Change</button>
+        </div>
+
+        <div id="relationshipSub" class="subCategories">
+            <h2 style= "font-family: 'Roboto'; color:white">Relationship</h2>
+            <button ontouchstart="" id ="social" class="subcategoryButton">Social</button>
+            <br>
+            <button ontouchstart="" id="romantic" class="subcategoryButton">Romantic</button>
+            <br>
+            <button ontouchstart="" id="friendship" class="subcategoryButton">Friendship</button>
+        </div>
+
+        <div id="educationSub" class="subCategories">
+            <h2 style= "font-family: 'Roboto'; color:white">Education</h2>
+            <button ontouchstart="" id ="quit" class="subcategoryButton">Quit/Change</button>
+            <br>
+            <button ontouchstart="" id="group" class="subcategoryButton">Study Group</button>
+            <br>
+            <button ontouchstart="" id="field" class="subcategoryButton">Study Field</button>
+        </div>
+
+        <div id="problems"></div>
+        <form id="questions"></form>
+        <div id="decision"></div>
+        <button ontouchstart="" class="backButton" id="back1"><i class="fas fa-arrow-left"></i> Back</button>
+
+        <div class="navbar">
+                <a href="#" class="homeNavbar active">Home</a>
+                <a href="#" class="profileNavbar">Profile</a>
+                <a href="#" class="settingsNavbar">Settings</a>
+        </div>
+        <script src="../src/home.js"></script>
+    </div>
+
+    <div id="profilePage">
+        <div class="profileCard" id= "infoCard">
+            <div class="grid-container">
+                <div class="item0">About You</div><hr class="item10">
+                <div class="item6"><i class="far fa-user"></i></div>
+                <div class="item1">Jane Doe</div>
+                <div class="item2"><i class="far fa-edit" id="edit"></i></div>
+                <div class="item7"><i class="far fa-envelope"></i></div>  
+                <div class="item3">janedoe1872@gmail.com</div>  
+                <div class="item9"><i class="fas fa-signature"></i></div>
+                <div class="item5">@janettedanette</div>
+                <div class="item8"><i class="fas fa-sort-numeric-up-alt"></i></div>
+                <div class="item4">27</div>
+            </div>
+        </div>
+        <div class="profileCard" id="editForm">
+            <p>Edit Profile</p>
+            <input type="text" class="uname" id="nameInput" placeholder="Name Surname"><br><br>
+            <input type="text" class="email" id="mailInput" placeholder="Email"><br><br>
+            <input type="text" class="unameInput" id="unameInput" placeholder="Username"><br><br>
+            <input type="number" class="ageInput" id="ageInput" placeholder="Age"><br><br>
+            <button class="formButton" id="editbutton">Submit</button>
+        </div>
+        
+        <br><br>
+
+        <div id='personalityCard' class=" pcard settingsDiv">
+            <div class="item0" >Your Personality</div>
+            <hr>
+
+        </div>
+        <br><br>
+
+        <div id='previousAnswers' class="pcard settingsDiv">
+            <div class="item0" >Previous Decisions</div>
+        </div>
+        <div class="navbar">
+            <a href="#" class="homeNavbar">Home</a>
+            <a href="#" class="profileNavbar active">Profile</a>
+            <a href="#" class="settingsNavbar">Settings</a>
+        </div>
+        <script src="../src/profile.js"></script>
+    </div>
+
+    <div id="settingsPage">
+        <style>
+            /* The slider */
+          .notti {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          
+          .notti:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          
+          input:checked + .notti {
+            background-color: #2a5658;
+          }
+          
+          input:focus + .notti {
+            box-shadow: 0 0 1px #2a5658;
+          }
+          
+          input:checked + .notti:before {
+            -webkit-transform: translateX(34px);
+            -ms-transform: translateX(34px);
+            transform: translateX(34px);
+          }
+          
+          /* Rounded sliders */
+          .notti.round {
+            border-radius: 24px;
+          }
+          
+          .notti.round:before {
+            border-radius: 50%;
+          }
+        </style>
+        <div class="settingComp">
+        <div id="notifCheck" class=" settingsDiv">
+              <div><p id='nLabel'>Notifications</p></div>
+              <div ><label class="switch">
+                <input type="checkbox" id="switchNotif">
+                <span class="notti round"></span>
+            </label></div>
+        </div><br><br>
+        <form id="changePassword" class="settingsDiv settingForm">
+            <p>Change Password</p>
+            <label for="oldpass">Old Password:</label><br>
+            <input type="text" id="oldpass" name="oldPassword" value=""><br>
+            <label for="newPass">New Password:</label><br>
+            <input type="text" id="newPass" name="newPassword" value=""><br><br>
+            <input type="submit" class="passSubmit" value="Submit" id="pasSub">
+        </form>
+        <br><br>
+        <form id="suspend"  class="settingsDiv settingForm">
+            <p>Suspend Account</p>
+            <label for="suspass">Password:</label><br>
+            <input type="text" id="suspass" name="suspendPass" value=""><br><br>
+            <input type="submit" class="passSubmit" value="Submit" id="susSub">
+        </form>
+        <br><br>
+        <button id="aboutUs" >
+            About Us
+        </button><br>
+        <button id="logout">
+            Log Out
+        </button>
+        </div>
+        <div id="about" class="settingsDiv settingForm">
+            <label>Hello! This web-based app is created by us, 5 friends who are studying Computer Science at Bilkent University, as a senior project.</label><br>
+            <label>Click our names to reach us from LinkedIN!</label><br><br>
+            <a target="_blank" href="https://www.linkedin.com/in/nursena-kuruba%C5%9F-422ab7130/">Nursena Kurubaş</a><br>
+            <a target="_blank" href="https://www.linkedin.com/in/aycabegumtascioglu/">Ayça Begüm Taşçıoğlu</a><br>
+            <a target="_blank" href="https://www.linkedin.com/in/mehmetsanisoglu/">Mehmet Sanisoğlu</a><br>
+            <a target="_blank" href="https://www.linkedin.com/in/yavuz-ta%C5%9F%C3%A7%C4%B1/">Yavuz Taşçı</a><br>
+            <a target="_blank" href="https://www.linkedin.com/in/myflood/">Mehmet Selim Özcan</a><br><br>
+            <button id="backAbout">
+                Back
+            </button>
+        </div>
+        <div class="navbar">
+            <a href="#" class="homeNavbar">Home</a>
+            <a href="#" class="profileNavbar">Profile</a>
+            <a href="#" class="settingsNavbar active">Settings</a>
+        </div>
+    <script src="../src/settings.js"></script>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <script src="../src/index.js"></script>
 </body>
 
