@@ -8,14 +8,14 @@ import json
 
 cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster["Personality"]
-collection = db["RelationshipQuestions"]
+collection = db["RelationshipProblems"]
 
 
 question = {
     "_id"           :       "",
     "question"      :       "",
     "score"         :       0,
-    "questiongId"   :       "",
+    "questionId"   :       "",
 }
 
 problem = {
@@ -26,6 +26,14 @@ problem = {
     "encourage"     :       [],
     "discourage"    :       [],
     "desireLevel"   :       0
+}
+
+campaing = {
+    ownerId     :   "",
+    problem     :   "",
+    questionIds :   [],
+    answers     :   [],
+    result      :   ""
 }
 
 def addQuestion( q, id ):
@@ -71,7 +79,7 @@ count = 0
 for each in f.readlines():
     count += 1
     addQuestion(each , count )
-'''
+
 readFile = open('subcategories.txt','r')
 
 collection = db["RelationshipProblems"]
@@ -80,3 +88,50 @@ for each in readFile.readlines():
     collection.insert_one(test)
 
 readFile.close()
+
+'''
+def iterate():
+    collection = db["subCategories"]
+    results = collection.find({})
+
+    collection2 = db["EducationProblems"]
+
+    for each in results:
+        temp = each
+
+
+        #temp["subcategory"] = each["subCategory"]
+        print(each["subCategory"])
+        #del temp['subCategory']
+        collection2.insert_one(temp)
+    return
+
+
+def iterateQuestions():
+    collection = db["RelationshipQuestions"]
+    results = collection.find({})
+
+    for each in results:
+        temp = each
+        collection.delete_one(each)
+
+
+        temp["question"] = temp["question"].strip()
+        collection.insert_one(temp)
+
+
+def iterateProblems():
+    collection = db["RelationshipProblems"]
+    results = collection.find({})
+    for each in results:
+        temp = each
+        collection.delete_one(each)
+        del temp["_id"]
+        collection.insert_one(temp)
+
+
+
+
+
+
+iterate()
