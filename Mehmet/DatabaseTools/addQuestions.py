@@ -8,7 +8,7 @@ import json
 
 cluster = MongoClient("mongodb+srv://mehmetsan:Northern61@clustermehmet-aio9p.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster["Personality"]
-collection = db["RelationshipProblems"]
+collection = db["deneme123"]
 
 
 question = {
@@ -16,7 +16,13 @@ question = {
     "question"      :       "",
     "score"         :       0,
     "questionId"   :       "",
+    "deneme"        : {
+        "first":    1,
+        "second":   2
+    }
 }
+
+
 
 problem = {
     'category'          :   "Relationship",
@@ -28,12 +34,12 @@ problem = {
     "desireLevel"   :       0
 }
 
-campaing = {
-    ownerId     :   "",
-    problem     :   "",
-    questionIds :   [],
-    answers     :   [],
-    result      :   ""
+campain = {
+    'ownerId'     :   "",
+    'problem'     :   "",
+    'questionIds' :   [],
+    'answers'     :   [],
+    'result'      :   ""
 }
 
 def addQuestion( q, id ):
@@ -99,10 +105,6 @@ def iterate():
     for each in results:
         temp = each
 
-
-        #temp["subcategory"] = each["subCategory"]
-        print(each["subCategory"])
-        #del temp['subCategory']
         collection2.insert_one(temp)
     return
 
@@ -129,9 +131,4 @@ def iterateProblems():
         del temp["_id"]
         collection.insert_one(temp)
 
-
-
-
-
-
-iterate()
+#iterate()
