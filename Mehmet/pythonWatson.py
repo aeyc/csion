@@ -1,6 +1,7 @@
 import requests
 import json
 import globalMethods as gm
+import sys
 
 ##################################################
 #############-------KEYWORDS-------###############
@@ -30,9 +31,12 @@ def findKeywords(text):
     headers = {'Content-Type': 'application/json'}
     data = '{"text":"'+text+'","features":{"sentiment":{},"categories":{},"concepts":{},"entities":{},"keywords":{}}}'
     analyzeText = requests.post('https://gateway-lon.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2019-07-12', headers=headers, data=data, auth=('apikey', '7LNEjCMvP6ZcNShjAkjPob7QSCfIHeZMQkn4Ho3dQgte'))
+
+
     textResults = analyzeText.json()
 
     keywords = textResults["keywords"]
+
     newKeywords = gm.capitalizeList(keywords)
     if(len(keywords) < 5):  #IF WE COULDN'T GET ENOUGH KEYWORDS, ASK FOR MORE DETAIL
         print("Oops! Going to need more detail than that..If you can't be more specific leave this part empty and continue to typing relevant keywords\n")
@@ -163,8 +167,10 @@ def findSentiment( textParam, targetsParam):
 #############---------USING---------##############
 ##################################################
 
+'''
 file = open("inputs.txt","r")
 results = []
+
 
 desiredTextIndex = 2       # <<<<<<<<<<<<<-------------------------------------------------- ENTER THE INDEX OF TEXT CORPUS
 
@@ -181,3 +187,6 @@ print(results[0])
 
 emotion = findSentiment(textInput, results[0])
 print(emotion)
+'''
+
+findKeywords("I am currently working in a law firm. I am not happy with my current job and I am open to new opportunities. I have received a better job offer that I am more interested in. The new job will come with a better salary and a better working environment. Should I change my job?")

@@ -93,6 +93,7 @@ def getGoodSynonym( originalWord ):
     type = syn1.pos()
     list = synonymPopulator(originalWord , type)    #LIST OF SIMILAR WORDS WITH SAME POS (PART OF SPEECH)
 
+    print(list)
     maxScore = -1
     maxIndex = -1
     size = len(list)
@@ -111,3 +112,5 @@ def getGoodSynonym( originalWord ):
         return list[maxIndex]
     else:                           #IF THE SYNONYM IS NOT GOOD ENOUGH JUST RETURN THE ORIGINAL WORD
         return originalWord
+
+getGoodSynonym("love")
